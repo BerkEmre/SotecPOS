@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Raporlama::Giriş";
+}
+
+
+@using (Html.BeginForm("girisYap", "Report", FormMethod.Post))
+{
+<div class="form-group">
+    <label class="text-danger">
+        @Request.Params["hata"]
+    </label>
+    <label for="signin-email" class="control-label sr-only">Şifre</label>
+    @Html.TextBox("sifre", null, new { @class = "form-control", @placeholder = "Şifre", @type="password" })
+</div>
+<button type="submit" class="btn btn-primary btn-lg btn-block">GİRİŞ</button>
+}
+

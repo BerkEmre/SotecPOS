@@ -1,0 +1,109 @@
+﻿@using System.Data
+
+
+@section Script{
+    <script src="~/admin_assets/vendor/toastr/toastr.js"></script>
+    <script src="~/admin_assets/assets/bundles/morrisscripts.bundle.js"></script><!-- Morris Plugin Js -->
+    <script src="~/admin_assets/assets/bundles/chartist.bundle.js"></script>
+}
+@section Style{
+    <link rel="stylesheet" href="~/admin_assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <link rel="stylesheet" href="~/admin_assets/vendor/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="~/admin_assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="~/admin_assets/vendor/toastr/toastr.min.css">
+    <link rel="stylesheet" href="~/admin_assets/vendor/morrisjs/morris.css" />
+
+
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12">
+        <div class="card top_summary">
+            <div class="header">
+                <h2>Bu Gün</h2>
+            </div>
+            <div class="body">
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-4">
+                        <div id="Summary1" class="carousel vert slide" data-ride="carousel" data-interval="1700">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">₺@ViewBag.Nakit</h2>
+                                        <small>Nakit</small>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">₺@ViewBag.Kredi</h2>
+                                        <small>Kredi</small>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">₺@ViewBag.Yfisi</h2>
+                                        <small>Yemek Fişi</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div id="Summary2" class="carousel vert slide" data-ride="carousel" data-interval="1200">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">@ViewBag.Urunler</h2>
+                                        <small>Ürün</small>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">@ViewBag.Adisyon</h2>
+                                        <small>Adisyon</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div id="Summary3" class="carousel vert slide" data-ride="carousel" data-interval="1000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">@ViewBag.Iptal</h2>
+                                        <small>İptal</small>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="p-10">
+                                        <h2 class="font700 float-left mr-2">@ViewBag.Ikram</h2>
+                                        <small>İkram</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>Masalar</h3>
+<div class="row clearfix">
+    @foreach (DataRow row in Model.Rows)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="card top_counter">
+                <div class="body">
+                    <div class="icon @((row["adisyon_id"].ToString() == "0") ? "text-success" : "text-danger")"><i class="fa fa-flag"></i></div>
+                    <div class="content">
+                        <div class="text"><strong>@row["masa_kategori"]</strong> @row["masa_adi"]</div>
+                        <h5 class="number">@(row["sure"].ToString().Length <= 0 ? "Müsait" : (row["sure"] + " dk")) </h5>
+                        <span>@(row["tutar"].ToString().Length <= 0 ? "" : (row["tutar"] + " ₺"))</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

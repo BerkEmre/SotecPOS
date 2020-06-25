@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sotec_pos", "sotec_pos\sotec_pos.csproj", "{B7B1E321-70CC-4940-A937-650F5D5842BD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "sotec_media", "sotec_media\sotec_media.vdproj", "{EAF7B9D6-85FC-411D-B0D8-6A288BC2CBC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web_api", "web_api\web_api.csproj", "{90D276DB-1E77-412C-B8E6-048B0DB5CC45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7B1E321-70CC-4940-A937-650F5D5842BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B1E321-70CC-4940-A937-650F5D5842BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B1E321-70CC-4940-A937-650F5D5842BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B1E321-70CC-4940-A937-650F5D5842BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF7B9D6-85FC-411D-B0D8-6A288BC2CBC4}.Debug|Any CPU.ActiveCfg = Debug
+		{EAF7B9D6-85FC-411D-B0D8-6A288BC2CBC4}.Release|Any CPU.ActiveCfg = Release
+		{90D276DB-1E77-412C-B8E6-048B0DB5CC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D276DB-1E77-412C-B8E6-048B0DB5CC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D276DB-1E77-412C-B8E6-048B0DB5CC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D276DB-1E77-412C-B8E6-048B0DB5CC45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08FFA356-5F5E-4F29-80FA-66CCE9F5044B}
+	EndGlobalSection
+EndGlobal

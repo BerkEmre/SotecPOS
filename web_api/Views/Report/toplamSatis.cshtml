@@ -1,0 +1,45 @@
+﻿@using System.Data
+@using web_api.Helpers
+@{
+    ViewBag.Title = "Toplam Satış";
+    SQL.baglanti_test();
+    DataTable dt_gunler = SQL.get("SELECT * FROM gunler");
+}
+
+<div class="row clearfix">
+    <div class="col-md-3">
+        @Html.BeginForm("taplamSatisRaporu", "Report", FormMethod.Post) {
+            <div class="card">
+                <div class="header">
+                    <h2>Tarih</h2>
+                </div>
+                <div class="body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-calendar"></i></span>
+                        </div>
+                        @Html.DropDownList("gun_id", "Manuel Tarih")
+                        <select class="input-sm form-control">
+                            <option value="0">Manuel Tarih</option>
+                            @foreach (DataRow row in dt_gunler.Rows)
+                            {
+                                <option value="@row["gun_id"]">@(row["baslangic_tarihi"] + "-" + row["bitis_tarihi"])</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-daterange input-group" data-provide="datepicker">
+                            <input type="text" class="input-sm form-control" name="start">
+                            <span class="input-group-addon range-to">ile</span>
+                            <input type="text" class="input-sm form-control" name="end">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button class="btn btn-success btn-block" type="submit">RAPOR AL</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

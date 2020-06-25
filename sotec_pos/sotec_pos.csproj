@@ -1,0 +1,976 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B7B1E321-70CC-4940-A937-650F5D5842BD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>sotec_pos</RootNamespace>
+    <AssemblyName>sotec_pos</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Berk Emre ALTAN\Desktop\publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://www.modayakamoz.com/sotec_pos/publish/</InstallUrl>
+    <ProductName>Sotec POS</ProductName>
+    <PublisherName>Sotec Media</PublisherName>
+    <MinimumRequiredVersion>1.0.1.10</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>ED4020308C90E4D02167802CA3837FD1E0898E78</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>sotec_pos_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Extensions, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ayarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar.Designer.cs">
+      <DependentUpon>ayarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayarlar_birim_donusumleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar_birim_donusumleri.Designer.cs">
+      <DependentUpon>ayarlar_birim_donusumleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayarlar_hareket_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar_hareket_ekle_duzenle.Designer.cs">
+      <DependentUpon>ayarlar_hareket_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayarlar_masa_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar_masa_ekle_duzenle.Designer.cs">
+      <DependentUpon>ayarlar_masa_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayarlar_masa_kategori_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar_masa_kategori_ekle_duzenle.Designer.cs">
+      <DependentUpon>ayarlar_masa_kategori_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ayarlar_yazici_sec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ayarlar_yazici_sec.Designer.cs">
+      <DependentUpon>ayarlar_yazici_sec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cariler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cariler.Designer.cs">
+      <DependentUpon>cariler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cari_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cari_ekle_duzenle.Designer.cs">
+      <DependentUpon>cari_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="destek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="destek.Designer.cs">
+      <DependentUpon>destek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="disa_aktar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="disa_aktar.Designer.cs">
+      <DependentUpon>disa_aktar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finans_genel_gider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finans_genel_gider.Designer.cs">
+      <DependentUpon>finans_genel_gider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finans_satin_alma_fatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finans_satin_alma_fatura.Designer.cs">
+      <DependentUpon>finans_satin_alma_fatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finans_satis_fatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finans_satis_fatura.Designer.cs">
+      <DependentUpon>finans_satis_fatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finans_tahsilat_fisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finans_tahsilat_fisi.Designer.cs">
+      <DependentUpon>finans_tahsilat_fisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hedef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hedef.Designer.cs">
+      <DependentUpon>hedef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kategori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kategori.Designer.cs">
+      <DependentUpon>kategori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kategori_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kategori_ekle_duzenle.Designer.cs">
+      <DependentUpon>kategori_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mesaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mesaj.Designer.cs">
+      <DependentUpon>mesaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="musteri_gecmisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="musteri_gecmisi.Designer.cs">
+      <DependentUpon>musteri_gecmisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="num_pad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="num_pad.Designer.cs">
+      <DependentUpon>num_pad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="onay_iste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="onay_iste.Designer.cs">
+      <DependentUpon>onay_iste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="personel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personel.Designer.cs">
+      <DependentUpon>personel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="personel_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personel_ekle_duzenle.Designer.cs">
+      <DependentUpon>personel_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="personel_gec_mesai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personel_gec_mesai.Designer.cs">
+      <DependentUpon>personel_gec_mesai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="personel_maas_odeme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personel_maas_odeme.Designer.cs">
+      <DependentUpon>personel_maas_odeme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="personel_yetki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="personel_yetki.Designer.cs">
+      <DependentUpon>personel_yetki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos.Designer.cs">
+      <DependentUpon>pos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_gecmis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_gecmis.Designer.cs">
+      <DependentUpon>pos_gecmis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa.Designer.cs">
+      <DependentUpon>pos_masa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_kalem_aciklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_kalem_aciklama.Designer.cs">
+      <DependentUpon>pos_masa_kalem_aciklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_kurye_sec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_kurye_sec.Designer.cs">
+      <DependentUpon>pos_masa_kurye_sec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_masa_aktar_birlestir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_masa_aktar_birlestir.Designer.cs">
+      <DependentUpon>pos_masa_masa_aktar_birlestir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_masa_kapat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_masa_kapat.Designer.cs">
+      <DependentUpon>pos_masa_masa_kapat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_satis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_satis.Designer.cs">
+      <DependentUpon>pos_masa_satis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_satis_finans_sil_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_satis_finans_sil_duzenle.Designer.cs">
+      <DependentUpon>pos_masa_satis_finans_sil_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_sicak_satis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_sicak_satis.Designer.cs">
+      <DependentUpon>pos_masa_sicak_satis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_urun_ikram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_urun_ikram.Designer.cs">
+      <DependentUpon>pos_masa_urun_ikram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_urun_iptal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_urun_iptal.Designer.cs">
+      <DependentUpon>pos_masa_urun_iptal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="raporlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="raporlar.Designer.cs">
+      <DependentUpon>raporlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_adisyon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_adisyon.Designer.cs">
+      <DependentUpon>rp_adisyon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_adisyon_satis_raporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_adisyon_satis_raporu.Designer.cs">
+      <DependentUpon>rp_adisyon_satis_raporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_cari_hesap_ekstresi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_cari_hesap_ekstresi.Designer.cs">
+      <DependentUpon>rp_cari_hesap_ekstresi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_fatura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_fatura.Designer.cs">
+      <DependentUpon>rp_fatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_finans_raporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_finans_raporu.Designer.cs">
+      <DependentUpon>rp_finans_raporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_hedefte_yazdir.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_hedefte_yazdir.Designer.cs">
+      <DependentUpon>rp_hedefte_yazdir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_irsaliye.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_irsaliye.Designer.cs">
+      <DependentUpon>rp_irsaliye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_masalara_gore_satislar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_masalara_gore_satislar.Designer.cs">
+      <DependentUpon>rp_masalara_gore_satislar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_masa_grubuna_gore_satislar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_masa_grubuna_gore_satislar.Designer.cs">
+      <DependentUpon>rp_masa_grubuna_gore_satislar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_odeme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_odeme.Designer.cs">
+      <DependentUpon>rp_odeme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_personel_ikram.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_personel_ikram.Designer.cs">
+      <DependentUpon>rp_personel_ikram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_personel_ikram_ozet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_personel_ikram_ozet.Designer.cs">
+      <DependentUpon>rp_personel_ikram_ozet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_personel_iptal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_personel_iptal.Designer.cs">
+      <DependentUpon>rp_personel_iptal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_personel_iptal_ozet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_personel_iptal_ozet.Designer.cs">
+      <DependentUpon>rp_personel_iptal_ozet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_personel_satis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_personel_satis.Designer.cs">
+      <DependentUpon>rp_personel_satis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_satis_raporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_satis_raporu.Designer.cs">
+      <DependentUpon>rp_satis_raporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_siparis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_siparis.Designer.cs">
+      <DependentUpon>rp_siparis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_stok_hareket_raporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_stok_hareket_raporu.Designer.cs">
+      <DependentUpon>rp_stok_hareket_raporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_urun_kategori_satis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_urun_kategori_satis.Designer.cs">
+      <DependentUpon>rp_urun_kategori_satis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_urun_satislari.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_urun_satislari.Designer.cs">
+      <DependentUpon>rp_urun_satislari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rp_ust_kategori_satis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rp_ust_kategori_satis.Designer.cs">
+      <DependentUpon>rp_ust_kategori_satis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="satin_alma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="satin_alma.Designer.cs">
+      <DependentUpon>satin_alma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
+    <Compile Include="SQLCon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLCon.Designer.cs">
+      <DependentUpon>SQLCon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stok.Designer.cs">
+      <DependentUpon>stok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler.Designer.cs">
+      <DependentUpon>urunler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_irsaliye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_irsaliye.Designer.cs">
+      <DependentUpon>urunler_irsaliye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_receteli_uretim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_receteli_uretim.Designer.cs">
+      <DependentUpon>urunler_receteli_uretim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_receteli_uretimler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_receteli_uretimler.Designer.cs">
+      <DependentUpon>urunler_receteli_uretimler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_siparis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_siparis.Designer.cs">
+      <DependentUpon>urunler_siparis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_stok_sayim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_stok_sayim.Designer.cs">
+      <DependentUpon>urunler_stok_sayim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urunler_stok_sayim_arsiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urunler_stok_sayim_arsiv.Designer.cs">
+      <DependentUpon>urunler_stok_sayim_arsiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="urun_ekle_duzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urun_ekle_duzenle.Designer.cs">
+      <DependentUpon>urun_ekle_duzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_tarih_sec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_tarih_sec.Designer.cs">
+      <DependentUpon>uc_tarih_sec.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ayarlar.resx">
+      <DependentUpon>ayarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayarlar_birim_donusumleri.resx">
+      <DependentUpon>ayarlar_birim_donusumleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayarlar_hareket_ekle_duzenle.resx">
+      <DependentUpon>ayarlar_hareket_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayarlar_masa_ekle_duzenle.resx">
+      <DependentUpon>ayarlar_masa_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayarlar_masa_kategori_ekle_duzenle.resx">
+      <DependentUpon>ayarlar_masa_kategori_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ayarlar_yazici_sec.resx">
+      <DependentUpon>ayarlar_yazici_sec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cariler.resx">
+      <DependentUpon>cariler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cari_ekle_duzenle.resx">
+      <DependentUpon>cari_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="destek.resx">
+      <DependentUpon>destek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="disa_aktar.resx">
+      <DependentUpon>disa_aktar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finans_genel_gider.resx">
+      <DependentUpon>finans_genel_gider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finans_satin_alma_fatura.resx">
+      <DependentUpon>finans_satin_alma_fatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finans_satis_fatura.resx">
+      <DependentUpon>finans_satis_fatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finans_tahsilat_fisi.resx">
+      <DependentUpon>finans_tahsilat_fisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hedef.resx">
+      <DependentUpon>hedef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kategori.resx">
+      <DependentUpon>kategori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kategori_ekle_duzenle.resx">
+      <DependentUpon>kategori_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mesaj.resx">
+      <DependentUpon>mesaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="musteri_gecmisi.resx">
+      <DependentUpon>musteri_gecmisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="num_pad.resx">
+      <DependentUpon>num_pad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="onay_iste.resx">
+      <DependentUpon>onay_iste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personel.resx">
+      <DependentUpon>personel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personel_ekle_duzenle.resx">
+      <DependentUpon>personel_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personel_gec_mesai.resx">
+      <DependentUpon>personel_gec_mesai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personel_maas_odeme.resx">
+      <DependentUpon>personel_maas_odeme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="personel_yetki.resx">
+      <DependentUpon>personel_yetki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos.resx">
+      <DependentUpon>pos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_gecmis.resx">
+      <DependentUpon>pos_gecmis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa.resx">
+      <DependentUpon>pos_masa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_kalem_aciklama.resx">
+      <DependentUpon>pos_masa_kalem_aciklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_kurye_sec.resx">
+      <DependentUpon>pos_masa_kurye_sec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_masa_aktar_birlestir.resx">
+      <DependentUpon>pos_masa_masa_aktar_birlestir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_masa_kapat.resx">
+      <DependentUpon>pos_masa_masa_kapat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_satis.resx">
+      <DependentUpon>pos_masa_satis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_satis_finans_sil_duzenle.resx">
+      <DependentUpon>pos_masa_satis_finans_sil_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_sicak_satis.resx">
+      <DependentUpon>pos_masa_sicak_satis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_urun_ikram.resx">
+      <DependentUpon>pos_masa_urun_ikram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_urun_iptal.resx">
+      <DependentUpon>pos_masa_urun_iptal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="raporlar.resx">
+      <DependentUpon>raporlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_adisyon.resx">
+      <DependentUpon>rp_adisyon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_adisyon_satis_raporu.resx">
+      <DependentUpon>rp_adisyon_satis_raporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_cari_hesap_ekstresi.resx">
+      <DependentUpon>rp_cari_hesap_ekstresi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_fatura.resx">
+      <DependentUpon>rp_fatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_finans_raporu.resx">
+      <DependentUpon>rp_finans_raporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_hedefte_yazdir.resx">
+      <DependentUpon>rp_hedefte_yazdir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_irsaliye.resx">
+      <DependentUpon>rp_irsaliye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_masalara_gore_satislar.resx">
+      <DependentUpon>rp_masalara_gore_satislar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_masa_grubuna_gore_satislar.resx">
+      <DependentUpon>rp_masa_grubuna_gore_satislar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_odeme.resx">
+      <DependentUpon>rp_odeme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_personel_ikram.resx">
+      <DependentUpon>rp_personel_ikram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_personel_ikram_ozet.resx">
+      <DependentUpon>rp_personel_ikram_ozet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_personel_iptal.resx">
+      <DependentUpon>rp_personel_iptal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_personel_iptal_ozet.resx">
+      <DependentUpon>rp_personel_iptal_ozet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_personel_satis.resx">
+      <DependentUpon>rp_personel_satis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_satis_raporu.resx">
+      <DependentUpon>rp_satis_raporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_siparis.resx">
+      <DependentUpon>rp_siparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_stok_hareket_raporu.resx">
+      <DependentUpon>rp_stok_hareket_raporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_urun_kategori_satis.resx">
+      <DependentUpon>rp_urun_kategori_satis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_urun_satislari.resx">
+      <DependentUpon>rp_urun_satislari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rp_ust_kategori_satis.resx">
+      <DependentUpon>rp_ust_kategori_satis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="satin_alma.resx">
+      <DependentUpon>satin_alma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLCon.resx">
+      <DependentUpon>SQLCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stok.resx">
+      <DependentUpon>stok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler.resx">
+      <DependentUpon>urunler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_irsaliye.resx">
+      <DependentUpon>urunler_irsaliye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_receteli_uretim.resx">
+      <DependentUpon>urunler_receteli_uretim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_receteli_uretimler.resx">
+      <DependentUpon>urunler_receteli_uretimler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_siparis.resx">
+      <DependentUpon>urunler_siparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_stok_sayim.resx">
+      <DependentUpon>urunler_stok_sayim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urunler_stok_sayim_arsiv.resx">
+      <DependentUpon>urunler_stok_sayim_arsiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urun_ekle_duzenle.resx">
+      <DependentUpon>urun_ekle_duzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_tarih_sec.resx">
+      <DependentUpon>uc_tarih_sec.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="sotec_pos_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sing_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cubes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_headset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_scooter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_setings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_walking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_checked1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sing_out1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_apple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_chart1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cubes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_headset1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_people1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_scooter1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_setings1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_walking1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add_columb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add_row.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_patchage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-90 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_enter_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_buy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viraj_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\autograph.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

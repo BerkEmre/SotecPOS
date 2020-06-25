@@ -1,0 +1,20 @@
+﻿@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    //dynamic Layout;
+    if (Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]) == "Report")
+    {
+        if (Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Action"]) == "Index")
+        {
+            Layout = "~/Views/Shared/_LayoutAdminLogin.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+}
