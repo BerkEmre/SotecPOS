@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace sotec_pos
 {
+    //SQL Bağlantısını Sağlayan Class
     public static class SQL
     {
         public static string ad, soyad;
