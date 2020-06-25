@@ -2,4 +2,4 @@
 Sotec Media - Kafe Restorant Otomasyonu
 
 
-www.sotecmedia.cpm
+www.sotecmedia.com
