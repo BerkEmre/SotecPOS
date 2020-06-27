@@ -700,6 +700,7 @@
     <EmbeddedResource Include="pos_masa_urun_iptal.resx">
       <DependentUpon>pos_masa_urun_iptal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

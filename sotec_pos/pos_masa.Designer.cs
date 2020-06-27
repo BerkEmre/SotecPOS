@@ -776,6 +776,7 @@
             this.btn_musteri_gecmisi.Size = new System.Drawing.Size(40, 40);
             this.btn_musteri_gecmisi.TabIndex = 37;
             this.btn_musteri_gecmisi.UseVisualStyleBackColor = false;
+            this.btn_musteri_gecmisi.Visible = false;
             this.btn_musteri_gecmisi.Click += new System.EventHandler(this.btn_musteri_gecmisi_Click);
             // 
             // tb_adres

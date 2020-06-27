@@ -60,7 +60,7 @@ namespace sotec_pos
             if (masa_id == -1)//paket servis
             {
                 button6.Visible = button8.Visible = false;
-                btn_nakit.Visible = btn_kredi.Visible = btn_yfisi.Visible = btn_indirim.Visible = tb_tutar.Visible = grid_odemeler.Visible = btn_top_fiyat.Visible = true;
+                btn_nakit.Visible = btn_kredi.Visible = btn_yfisi.Visible = btn_indirim.Visible = tb_tutar.Visible = grid_odemeler.Visible = btn_top_fiyat.Visible = btn_musteri_gecmisi.Visible = true;
                 lbl_ad_soyad.Visible = tb_ad_soyad.Visible = lbl_telefon.Visible = tb_telefon.Visible = tb_adres.Visible = btn_kurye_sec.Visible = true;
 
                 DataTable dt_adisyon1 = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
@@ -941,6 +941,7 @@ namespace sotec_pos
                 }
                 else
                 {
+                    SQL.set("UPDATE musteri SET ad_soyad = '" + tb_ad_soyad.Text + "', adres = '" + tb_adres.Text + "' WHERE musteri_id = " + dt.Rows[0]["musteri_id"]);
                     yeni_musteri_id = Convert.ToInt32(dt.Rows[0]["musteri_id"]);
                 }
             }
