@@ -14,7 +14,7 @@ namespace sotec_pos
             InitializeComponent();
 
             lbl_tarih.Text = tarih1.Day + "." + tarih1.Month + "." + tarih1.Year + "-" + tarih2.Day + "." + tarih2.Month + "." + tarih2.Year;
-            DataTable dt = SQL.get("SELECT ad_soyad = k.ad + ' ' + k.soyad, u.urun_adi, miktar = SUM(ak.miktar), tutar = SUM(ak.miktar * u.fiyat) FROM kullanicilar k LEFT OUTER JOIN adisyon_kalem ak ON ak.silindi = 1 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 1, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "') INNER JOIN urunler u ON u.urun_id = ak.urun_id " +
+            DataTable dt = SQL.get("SELECT ad_soyad = k.ad + ' ' + k.soyad, u.urun_adi, miktar = SUM(ak.miktar), tutar = SUM(ak.miktar * u.fiyat) FROM kullanicilar k LEFT OUTER JOIN adisyon_kalem ak ON ak.silindi = 1 AND ak.durum_parametre_id != 51 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 1, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "') INNER JOIN urunler u ON u.urun_id = ak.urun_id " +
                 " WHERE k.silindi = 0 GROUP by k.ad, k.soyad, u.urun_adi");
 
             this.DataSource = dt;
