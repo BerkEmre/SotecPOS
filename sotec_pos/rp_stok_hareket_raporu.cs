@@ -18,7 +18,7 @@ namespace sotec_pos
             lbl_urun_adi.Text = dt_urun.Rows[0]["urun_adi"].ToString();
             lbl_siparis_tarihi.Text = ilk_tarih.ToShortDateString() + " - " + son_tarih.ToShortDateString();
 
-            DataTable dt_stok_hareket = SQL.get("SELECT uh.kayit_tarihi, uh.miktar, tip = p.deger FROM urunler_hareket uh INNER JOIN parametreler p ON p.parametre_id = uh.hareket_tipi_parametre_id WHERE uh.silindi = 0 AND uh.urun_id = " + urun_id + " AND uh.kayit_tarihi BETWEEN '" + ilk_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' AND DATEADD(DAY, 1, '" + son_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "')");
+            DataTable dt_stok_hareket = SQL.get("SELECT uh.kayit_tarihi, uh.miktar, tip = p.deger FROM urunler_hareket uh INNER JOIN parametreler p ON p.parametre_id = uh.hareket_tipi_parametre_id WHERE uh.silindi = 0 AND uh.urun_id = " + urun_id + " AND uh.kayit_tarihi BETWEEN '" + ilk_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' AND DATEADD(DAY, 0, '" + son_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "')");
             this.DataSource = dt_stok_hareket;
 
             XRBinding binding0 = new XRBinding("Text", this.DataSource, "kayit_tarihi", "");

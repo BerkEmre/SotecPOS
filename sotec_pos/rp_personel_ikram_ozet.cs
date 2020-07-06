@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace sotec_pos
             InitializeComponent();
             lbl_tarih.Text = tarih1.Day + "." + tarih1.Month + "." + tarih1.Year + "-" + tarih2.Day + "." + tarih2.Month + "." + tarih2.Year;
 
-            DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.ikram_miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.ikram != 0 AND ak.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 1, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0");
+            DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.ikram_miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.ikram != 0 AND ak.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 0, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0");
 
             this.DataSource = dt;
 

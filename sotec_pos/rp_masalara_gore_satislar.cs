@@ -16,8 +16,8 @@ namespace sotec_pos
             lbl_tarih.Text = tarih1.Day + "." + tarih1.Month + "." + tarih1.Year + "-" + tarih2.Day + "." + tarih2.Month + "." + tarih2.Year;
             DataTable dt = SQL.get(" SELECT " +
                                    "     m.masa_adi, " +
-                                   "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 1, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')), 0) " +
-                                   " FROM masalar m WHERE m.silindi = 0 AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 1, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')), 0)");
+                                   "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 0, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')), 0) " +
+                                   " FROM masalar m WHERE m.silindi = 0 AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + tarih1.ToString("yyyy-MM-dd HH:mm:00.000") + "' AND DATEADD(DAY, 0, '" + tarih2.ToString("yyyy-MM-dd HH:mm:00.000") + "')), 0)");
 
             this.DataSource = dt;
 

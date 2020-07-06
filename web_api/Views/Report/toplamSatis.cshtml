@@ -28,6 +28,7 @@
         case "ust_kategori":   rapor_adi = "Üst Kategori"; break;
         case "masa":           rapor_adi = "Masa"; break;
         case "masa_grubu":     rapor_adi = "Masa Grubu"; break;
+        case "masa_kapatma":   rapor_adi = "Masa Kapatmaları"; break;
         default:               rapor_adi = "Toplam Raporu"; break;
     }
 
@@ -76,6 +77,7 @@
                             <label class="fancy-radio custom-color-green"><input name="rapor_tipi" value="ust_kategori" type="radio" @(rapor_tipi == "ust_kategori" ? "checked" : "")><span><i></i>Üst Kategori</span></label><br />
                             <label class="fancy-radio custom-color-green"><input name="rapor_tipi" value="masa" type="radio" @(rapor_tipi == "masa" ? "checked" : "")><span><i></i>Masa</span></label><br />
                             <label class="fancy-radio custom-color-green"><input name="rapor_tipi" value="masa_grubu" type="radio" @(rapor_tipi == "masa_grubu" ? "checked" : "")><span><i></i>Masa Grubu</span></label><br />
+                            <label class="fancy-radio custom-color-green"><input name="rapor_tipi" value="masa_kapatma" type="radio" @(rapor_tipi == "masa_kapatma" ? "checked" : "")><span><i></i>Masa Kapatmaları</span></label><br />
                         </div>
                     </div>
                 </div>
@@ -93,12 +95,12 @@
             <div class="body">
                 @if (rapor_tipi == "toplam_satis")
                 {
-                    DataTable dt_kdv = SQL.get("SELECT kdv = AVG(a.kdv) FROM (SELECT kdv = (SELECT AVG(u.kdv) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = fh.referans_id) FROM finans_hareket fh WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')) a");
-                    DataTable dt_nakit = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 25 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')");
-                    DataTable dt_kredi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 26 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')");
-                    DataTable dt_yfisi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 27 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')");
-                    DataTable dt_gg_nakit = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 60 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')");
-                    DataTable dt_gg_kredi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 61 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')");
+                    DataTable dt_kdv = SQL.get("SELECT kdv = AVG(a.kdv) FROM (SELECT kdv = (SELECT AVG(u.kdv) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = fh.referans_id) FROM finans_hareket fh WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')) a");
+                    DataTable dt_nakit = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 25 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')");
+                    DataTable dt_kredi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 26 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')");
+                    DataTable dt_yfisi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 27 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')");
+                    DataTable dt_gg_nakit = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 60 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')");
+                    DataTable dt_gg_kredi = SQL.get("SELECT tutar = ISNULL(SUM(miktar), 0) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id = 61 AND kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')");
                     decimal kdv = 0;
                     try { kdv = Convert.ToDecimal(dt_kdv.Rows[0]["kdv"]); }
                     catch { kdv = 0; }
@@ -146,7 +148,7 @@
                 }
                 else if (rapor_tipi == "personel_iptal")
                 {
-                    DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 1 AND ak.durum_parametre_id != 51 AND ak.durum_parametre_id != 51 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0 ORDER by tbl.tutar DESC");
+                    DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 1 AND ak.durum_parametre_id != 51 AND ak.durum_parametre_id != 51 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0 ORDER by tbl.tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -175,7 +177,7 @@
                 }
                 else if (rapor_tipi == "personel_iptal_detay")
                 {
-                    DataTable dt = SQL.get("SELECT ad_soyad = k.ad + ' ' + k.soyad, u.urun_adi, miktar = SUM(ak.miktar), tutar = SUM(ak.miktar * u.fiyat) FROM kullanicilar k LEFT OUTER JOIN adisyon_kalem ak ON ak.silindi = 1 AND ak.durum_parametre_id != 51 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "') INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE k.silindi = 0 GROUP by k.ad, k.soyad, u.urun_adi");
+                    DataTable dt = SQL.get("SELECT ad_soyad = k.ad + ' ' + k.soyad, u.urun_adi, miktar = SUM(ak.miktar), tutar = SUM(ak.miktar * u.fiyat) FROM kullanicilar k LEFT OUTER JOIN adisyon_kalem ak ON ak.silindi = 1 AND ak.durum_parametre_id != 51 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "') INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE k.silindi = 0 GROUP by k.ad, k.soyad, u.urun_adi");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -191,12 +193,12 @@
                                 @foreach (DataRow item in dt.Rows)
                                 {
                                     toplam += Convert.ToDecimal(item["tutar"]);
-                                <tr>
-                                    <td>@item["ad_soyad"]</td>
-                                    <td>@item["urun_adi"]</td>
-                                    <td>@Convert.ToDecimal(item["miktar"]).ToString("n2")</td>
-                                    <td>@Convert.ToDecimal(item["tutar"]).ToString("c2")</td>
-                                </tr>
+                                    <tr>
+                                        <td>@item["ad_soyad"]</td>
+                                        <td>@item["urun_adi"]</td>
+                                        <td>@Convert.ToDecimal(item["miktar"]).ToString("n2")</td>
+                                        <td>@Convert.ToDecimal(item["tutar"]).ToString("c2")</td>
+                                    </tr>
                                 }
                                 <tr>
                                     <td>Toplam</td>
@@ -208,7 +210,7 @@
                 }
                 else if (rapor_tipi == "personel_ikram")
                 {
-                    DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.ikram_miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.ikram != 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0 ORDER by tbl.tutar DESC");
+                    DataTable dt = SQL.get("SELECT * FROM(SELECT ad_soyad = k.ad + ' ' + k.soyad, tutar = (SELECT SUM(ak.ikram_miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.ikram != 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')) FROM kullanicilar k WHERE k.silindi = 0) tbl WHERE tbl.tutar != 0 ORDER by tbl.tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -239,8 +241,8 @@
                 {
                     DataTable dt = SQL.get(" SELECT " +
                         "     ad_soyad = k.ad + ' ' + k.soyad, " +
-                        "     tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) " +
-                        " FROM kullanicilar k WHERE k.silindi = 0 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                        "     tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) " +
+                        " FROM kullanicilar k WHERE k.silindi = 0 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.kaydeden_kullanici_id = k.kullanici_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -271,8 +273,8 @@
                 {
                     DataTable dt = SQL.get(" SELECT " +
                         "     u.urun_adi, " +
-                        "     tutar = ISNULL((SELECT SUM(ak.miktar) * u.fiyat FROM adisyon_kalem ak WHERE ak.silindi = 0 AND ak.urun_id = u.urun_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) " +
-                        " FROM urunler u WHERE u.silindi = 0 AND u.menu_aktif = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar) * u.fiyat FROM adisyon_kalem ak WHERE ak.silindi = 0 AND ak.urun_id = u.urun_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                        "     tutar = ISNULL((SELECT SUM(ak.miktar) * u.fiyat FROM adisyon_kalem ak WHERE ak.silindi = 0 AND ak.urun_id = u.urun_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) " +
+                        " FROM urunler u WHERE u.silindi = 0 AND u.menu_aktif = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar) * u.fiyat FROM adisyon_kalem ak WHERE ak.silindi = 0 AND ak.urun_id = u.urun_id AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -301,8 +303,8 @@
                 }
                 else if (rapor_tipi == "kategori")
                 {
-                    DataTable dt = SQL.get("SELECT k.kategori_adi, tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id AND u.kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) FROM kategoriler k " +
-                        " WHERE k.silindi = 0 AND k.ust_kategori_id != 0 AND k.menude_gosterilsin = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id AND u.kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                    DataTable dt = SQL.get("SELECT k.kategori_adi, tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id AND u.kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) FROM kategoriler k " +
+                        " WHERE k.silindi = 0 AND k.ust_kategori_id != 0 AND k.menude_gosterilsin = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id AND u.kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -331,8 +333,8 @@
                 }
                 else if (rapor_tipi == "ust_kategori")
                 {
-                    DataTable dt = SQL.get("SELECT k.kategori_adi, tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN kategoriler k1 ON k1.kategori_id = u.kategori_id AND k1.ust_kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) FROM kategoriler k " +
-                        " WHERE k.silindi = 0 AND k.ust_kategori_id = 0 AND k.menude_gosterilsin = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN kategoriler k1 ON k1.kategori_id = u.kategori_id AND k1.ust_kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                    DataTable dt = SQL.get("SELECT k.kategori_adi, tutar = ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN kategoriler k1 ON k1.kategori_id = u.kategori_id AND k1.ust_kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) FROM kategoriler k " +
+                        " WHERE k.silindi = 0 AND k.ust_kategori_id = 0 AND k.menude_gosterilsin = 1 AND 0 != ISNULL((SELECT SUM(ak.miktar * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN kategoriler k1 ON k1.kategori_id = u.kategori_id AND k1.ust_kategori_id = k.kategori_id WHERE ak.silindi = 0 AND ak.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -363,8 +365,8 @@
                 {
                     DataTable dt = SQL.get(" SELECT " +
                         "     m.masa_adi, " +
-                        "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) " +
-                        " FROM masalar m WHERE m.silindi = 0 AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                        "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) " +
+                        " FROM masalar m WHERE m.silindi = 0 AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id AND a.masa_id = m.masa_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -395,10 +397,10 @@
                 {
                     DataTable dt = SQL.get(" SELECT " +
                         "     mk.masa_kategori, " +
-                        "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id INNER JOIN masalar m ON m.masa_id = a.masa_id AND m.masa_kategori_id = mk.masa_kategori_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) " +
+                        "     tutar = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id INNER JOIN masalar m ON m.masa_id = a.masa_id AND m.masa_kategori_id = mk.masa_kategori_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) " +
                         " FROM masalar_kategori mk " +
                         " WHERE mk.silindi = 0 " +
-                        " AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id INNER JOIN masalar m ON m.masa_id = a.masa_id AND m.masa_kategori_id = mk.masa_kategori_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 1, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
+                        " AND 0 != ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh INNER JOIN adisyon a ON a.adisyon_id = fh.referans_id INNER JOIN masalar m ON m.masa_id = a.masa_id AND m.masa_kategori_id = mk.masa_kategori_id WHERE fh.silindi = 0 AND fh.hareket_tipi_parametre_id IN (25, 26, 27) AND fh.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "')), 0) ORDER by tutar DESC");
                     decimal toplam = 0;
                     <div class="table-responsive">
                         <table class="table table-hover m-b-0">
@@ -416,6 +418,86 @@
                                         <td>@item["masa_kategori"]</td>
                                         <td>@Convert.ToDecimal(item["tutar"]).ToString("c2")</td>
                                     </tr>
+                                }
+                                <tr>
+                                    <td>Toplam</td>
+                                    <td>@toplam.ToString("c2")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else if (rapor_tipi == "masa_kapatma")
+                {
+                    DataTable dt = SQL.get(
+                        "SELECT " +
+                        "    a.adisyon_id, " +
+                        "    m.masa_adi, " +
+                        "    m.kayit_tarihi, " +
+                        "    p.deger, " +
+                        "    tutar = ISNULL((SELECT SUM((ak1.miktar - ak1.ikram_miktar) * u1.fiyat) FROM adisyon_kalem ak1 INNER JOIN urunler u1 ON u1.urun_id = ak1.urun_id WHERE ak1.silindi = 0 AND ak1.adisyon_id = a.adisyon_id), 0.0000), " +
+                        "    odeme = ISNULL((SELECT SUM(fh.miktar) FROM finans_hareket fh WHERE fh.silindi = 0 AND fh.referans_id = a.adisyon_id AND fh.hareket_tipi_parametre_id IN(25, 26, 27, 59)), 0.0000) " +
+                        "FROM " +
+                        "    adisyon a " +
+                        "    INNER JOIN masalar m ON m.masa_id = a.masa_id " +
+                        "    INNER JOIN parametreler p ON p.parametre_id = a.masa_kapat_parametre_id " +
+                        "WHERE " +
+                        "    a.silindi = 0 " +
+                        "    AND a.masa_kapat_parametre_id != 0 " +
+                        "    AND a.kayit_tarihi BETWEEN '" + baslangic_tarihi + "' AND DATEADD(DAY, 0, '" + bitis_tarihi + "') " +
+                        "ORDER by a.adisyon_id");
+
+
+                    decimal toplam = 0;
+                    <div class="table-responsive">
+                        <table class="table table-hover m-b-0">
+                            <thead>
+                                <tr>
+                                    <th>Masa</th>
+                                    <th>Mazeret</th>
+                                    <th>Tarih</th>
+                                    <th>Tutar</th>
+                                    <th>Ödeme</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (DataRow item in dt.Rows)
+                                {
+                                    toplam += Convert.ToDecimal(item["tutar"]) - Convert.ToDecimal(item["odeme"]);
+                                <tr style="font-weight:bold; font-size:medium;">
+                                    <td>@item["masa_adi"]</td>
+                                    <td>@item["deger"]</td>
+                                    <td>@item["kayit_tarihi"]</td>
+                                    <td>@Convert.ToDecimal(item["tutar"]).ToString("c2")</td>
+                                    <td>@Convert.ToDecimal(item["odeme"]).ToString("c2")</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="background-color: lightgray;">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Kullanıcı</th>
+                                                    <th>Ürün</th>
+                                                    <th>Miktar</th>
+                                                    <th>İkram</th>
+                                                    <th>Tutar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (DataRow dataRow in SQL.get("SELECT ak.miktar, ak.ikram_miktar, ad_soyad = k.ad + ' ' + k.soyad, u.urun_adi, tutar = ((ak.miktar - ak.ikram_miktar) * u.fiyat) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN kullanicilar k ON k.kullanici_id = ak.kaydeden_kullanici_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + item["adisyon_id"]).Rows)
+	                                            {
+                                                <tr>
+                                                    <td>@dataRow["ad_soyad"]</td>
+                                                    <td>@dataRow["urun_adi"]</td>
+                                                    <td>@Convert.ToDecimal(dataRow["miktar"]).ToString("n2")</td>
+                                                    <td>@Convert.ToDecimal(dataRow["ikram_miktar"]).ToString("n2")</td>
+                                                    <td>@Convert.ToDecimal(dataRow["tutar"]).ToString("c2")</td>
+                                                </tr>
+	                                            }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
                                 }
                                 <tr>
                                     <td>Toplam</td>
