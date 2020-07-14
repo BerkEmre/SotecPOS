@@ -18,7 +18,7 @@ namespace sotec_pos
             lbl_urun_adi.Text = dt_urun.Rows[0]["urun_adi"].ToString();
             lbl_siparis_tarihi.Text = ilk_tarih.ToShortDateString() + " - " + son_tarih.ToShortDateString();
 
-            DataTable dt_stok_hareket = SQL.get("SELECT uh.kayit_tarihi, uh.miktar, tip = p.deger, m.ad_soyad, m.telefon, kurye = kur.ad + ' ' + kur.soyad FROM urunler_hareket uh INNER JOIN parametreler p ON p.parametre_id = uh.hareket_tipi_parametre_id LEFT OUTER JOIN adisyon a ON uh.hareket_tipi_parametre_id = 3 AND a.adisyon_id = uh.referans_id LEFT OUTER JOIN musteri m ON m.musteri_id = a.musteri_id LEFT OUTER JOIN kullanicilar kur ON kur.kullanici_id = a.kurye_kullanici_id WHERE uh.silindi = 0 AND uh.urun_id = " + urun_id + " AND uh.kayit_tarihi BETWEEN '" + ilk_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' AND DATEADD(DAY, 0, '" + son_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "')");
+            DataTable dt_stok_hareket = SQL.get("SELECT uh.kayit_tarihi, uh.miktar, tip = p.deger, m.ad_soyad, m.telefon, kurye = kur.ad + ' ' + kur.soyad FROM urunler_hareket uh INNER JOIN parametreler p ON p.parametre_id = uh.hareket_tipi_parametre_id LEFT OUTER JOIN adisyon a ON uh.hareket_tipi_parametre_id = 3 AND a.adisyon_id = uh.referans_id LEFT OUTER JOIN musteri m ON m.musteri_id = a.musteri_id LEFT OUTER JOIN kullanicilar kur ON kur.kullanici_id = a.kurye_kullanici_id WHERE uh.silindi = 0 AND uh.urun_id = " + urun_id + " AND uh.kayit_tarihi BETWEEN '" + ilk_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' AND DATEADD(DAY, 0, '" + son_tarih.ToString("yyyy-MM-dd HH:mm:ss.fff") + "') ORDER by uh.kayit_tarihi");
             this.DataSource = dt_stok_hareket;
 
             XRBinding binding0 = new XRBinding("Text", this.DataSource, "kayit_tarihi", "");
@@ -36,7 +36,7 @@ namespace sotec_pos
             XRBinding binding3 = new XRBinding("Text", this.DataSource, "miktar", "{0:0.##}");
             xrTableCell8.DataBindings.Add(binding3);
 
-            XRSummary sum1 = new XRSummary(SummaryRunning.Page, SummaryFunc.Sum, "{0:0.##}");
+            XRSummary sum1 = new XRSummary(SummaryRunning.Report, SummaryFunc.Sum, "{0:0.##}");
             xrTableCell8.Summary = sum1;
         }
     }

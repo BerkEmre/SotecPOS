@@ -46,10 +46,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.GreenYellow;
-            this.button2.Location = new System.Drawing.Point(12, 205);
+            this.button2.Location = new System.Drawing.Point(12, 211);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(389, 137);
+            this.button2.Size = new System.Drawing.Size(389, 131);
             this.button2.TabIndex = 38;
             this.button2.Text = "İPTAL ET";
             this.button2.UseVisualStyleBackColor = false;
@@ -127,11 +127,11 @@
             // cb_hazirlandi
             // 
             this.cb_hazirlandi.AutoSize = true;
-            this.cb_hazirlandi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cb_hazirlandi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cb_hazirlandi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cb_hazirlandi.Location = new System.Drawing.Point(264, 168);
+            this.cb_hazirlandi.Location = new System.Drawing.Point(123, 168);
             this.cb_hazirlandi.Name = "cb_hazirlandi";
-            this.cb_hazirlandi.Size = new System.Drawing.Size(137, 29);
+            this.cb_hazirlandi.Size = new System.Drawing.Size(164, 35);
             this.cb_hazirlandi.TabIndex = 65;
             this.cb_hazirlandi.Text = "Hazırlandı";
             this.cb_hazirlandi.UseVisualStyleBackColor = true;
