@@ -1020,5 +1020,22 @@ namespace sotec_pos
 
             tb_adres.Text = dt.Rows[0][(cmb_adres.EditValue.ToString() == "1" ? "adres" : "adres_" + cmb_adres.EditValue.ToString())].ToString();
         }
+
+        private void tb_adres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_adres_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void tb_adres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.ToString() == "'")
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

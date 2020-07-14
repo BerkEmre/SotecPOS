@@ -149,7 +149,7 @@ namespace sotec_pos
             DataTable dt;
             try
             {
-                dt = SQL.get("SELECT * FROM kullanicilar WHERE silindi = 0 AND sifre = " + tb_pass.Text);
+                dt = SQL.get("SELECT * FROM kullanicilar WHERE silindi = 0 AND sifre = '" + tb_pass.Text + "'");
             } catch { new mesaj("Veri tabanı bağlantısında sorun var!").ShowDialog(); return; }
 
             if (dt.Rows.Count <= 0)

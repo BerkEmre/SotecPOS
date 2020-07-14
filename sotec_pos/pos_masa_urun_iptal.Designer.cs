@@ -33,6 +33,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.lbl_urun = new System.Windows.Forms.Label();
             this.lbl_miktar = new System.Windows.Forms.Label();
+            this.cb_hazirlandi = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tb_miktar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +46,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.GreenYellow;
-            this.button2.Location = new System.Drawing.Point(12, 170);
+            this.button2.Location = new System.Drawing.Point(12, 205);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(389, 172);
+            this.button2.Size = new System.Drawing.Size(389, 137);
             this.button2.TabIndex = 38;
             this.button2.Text = "İPTAL ET";
             this.button2.UseVisualStyleBackColor = false;
@@ -123,12 +124,25 @@
             this.lbl_miktar.TabIndex = 64;
             this.lbl_miktar.Text = "KATEGORİLER";
             // 
+            // cb_hazirlandi
+            // 
+            this.cb_hazirlandi.AutoSize = true;
+            this.cb_hazirlandi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cb_hazirlandi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cb_hazirlandi.Location = new System.Drawing.Point(264, 168);
+            this.cb_hazirlandi.Name = "cb_hazirlandi";
+            this.cb_hazirlandi.Size = new System.Drawing.Size(137, 29);
+            this.cb_hazirlandi.TabIndex = 65;
+            this.cb_hazirlandi.Text = "Hazırlandı";
+            this.cb_hazirlandi.UseVisualStyleBackColor = true;
+            // 
             // pos_masa_urun_iptal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(413, 356);
+            this.Controls.Add(this.cb_hazirlandi);
             this.Controls.Add(this.lbl_miktar);
             this.Controls.Add(this.lbl_urun);
             this.Controls.Add(this.button4);
@@ -152,5 +166,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lbl_urun;
         private System.Windows.Forms.Label lbl_miktar;
+        private System.Windows.Forms.CheckBox cb_hazirlandi;
     }
 }

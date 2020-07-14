@@ -41,7 +41,8 @@ namespace sotec_pos
             else
                 SQL.set("UPDATE adisyon_kalem SET miktar = miktar - " + tb_miktar.Value.ToString().Replace(',', '.') + " WHERE adisyon_kalem_id = " + adisyon_kalem_id);
 
-            SQL.set("INSERT INTO urunler_hareket (urun_id, hareket_tipi_parametre_id, miktar, referans_id, birim_fiyat) VALUES (" + urun_id + ", 2, " + tb_miktar.Value.ToString().Replace(',', '.') + ", " + adisyon_id + ", 0.0000)");
+            if(cb_hazirlandi.Checked)
+                SQL.set("INSERT INTO urunler_hareket (urun_id, hareket_tipi_parametre_id, miktar, referans_id, birim_fiyat) VALUES (" + urun_id + ", 2, " + tb_miktar.Value.ToString().Replace(',', '.') + ", " + adisyon_id + ", 0.0000)");
             this.Close();
         }
 
