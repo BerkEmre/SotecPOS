@@ -60,8 +60,13 @@ namespace sotec_pos
             if (masa_id == -1)//paket servis
             {
                 button6.Visible = button8.Visible = false;
-                btn_nakit.Visible = btn_kredi.Visible = btn_yfisi.Visible = btn_indirim.Visible = tb_tutar.Visible = grid_odemeler.Visible = btn_top_fiyat.Visible = btn_musteri_gecmisi.Visible = true;
+                cmb_adres.Visible = btn_nakit.Visible = btn_kredi.Visible = btn_yfisi.Visible = btn_indirim.Visible = tb_tutar.Visible = grid_odemeler.Visible = btn_top_fiyat.Visible = btn_musteri_gecmisi.Visible = true;
                 lbl_ad_soyad.Visible = tb_ad_soyad.Visible = lbl_telefon.Visible = tb_telefon.Visible = tb_adres.Visible = btn_kurye_sec.Visible = true;
+                button5.Text = "Kuryeye Aktar";
+
+                DataTable dt_aresler = SQL.get("SELECT parametre_id = 1, deger = 'Adres 1' UNION ALL SELECT parametre_id = 2, deger = 'Adres 2' UNION ALL SELECT parametre_id = 3, deger = 'Adres 3'");
+                cmb_adres.Properties.DataSource = dt_aresler;
+                cmb_adres.EditValue = dt_aresler.Rows[0]["parametre_id"];
 
                 DataTable dt_adisyon1 = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
                 if (dt_adisyon1.Rows.Count != 0)
@@ -232,38 +237,50 @@ namespace sotec_pos
                 return;
             }
 
-            DataTable dt_adisyon = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
-            if (dt_adisyon.Rows.Count == 0)
-                return;
-
-            int adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-
-            decimal toplam_tutar = 0;
-            decimal odenen = 0;
-            DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
-            toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
-
-            DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27) AND referans_id = " + adisyon_id);
-            odenen = Convert.ToDecimal(dt_finans.Rows[0]["top_tutar"]);
-
-            if ((toplam_tutar - odenen) == 0)
+            if(masa_id == -1)
             {
-                SQL.set("UPDATE adisyon SET kapandi = 1 WHERE adisyon_id = " + adisyon_id);
-                this.Close();
+                DataTable dt_adisyon = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
+                if (dt_adisyon.Rows.Count == 0)
+                    return;
+
+                pos_masa_masa_aktar_birlestir m = new pos_masa_masa_aktar_birlestir(masa_id, 0);
+                m.FormClosing += M_FormClosing;
+                m.ShowDialog();
             }
             else
             {
-                using (var form = new pos_masa_masa_kapat("Masada ödenmemiş tutar bulunmakta,\nkapatmak istediğinizden emin misiniz ? "))
+                DataTable dt_adisyon = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
+                if (dt_adisyon.Rows.Count == 0)
+                    return;
+
+                int adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
+
+                decimal toplam_tutar = 0;
+                decimal odenen = 0;
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
+
+                DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27) AND referans_id = " + adisyon_id);
+                odenen = Convert.ToDecimal(dt_finans.Rows[0]["top_tutar"]);
+
+                if ((toplam_tutar - odenen) == 0)
                 {
-                    var result = form.ShowDialog();
-                    if (result == DialogResult.Yes)
+                    SQL.set("UPDATE adisyon SET kapandi = 1 WHERE adisyon_id = " + adisyon_id);
+                    this.Close();
+                }
+                else
+                {
+                    using (var form = new pos_masa_masa_kapat("Masada ödenmemiş tutar bulunmakta,\nkapatmak istediğinizden emin misiniz ? "))
                     {
-                        SQL.set("UPDATE adisyon SET kapandi = 1, masa_kapat_parametre_id = " + form.cmb_ikram.EditValue + " WHERE adisyon_id = " + adisyon_id);
-                        this.Close();
+                        var result = form.ShowDialog();
+                        if (result == DialogResult.Yes)
+                        {
+                            SQL.set("UPDATE adisyon SET kapandi = 1, masa_kapat_parametre_id = " + form.cmb_ikram.EditValue + " WHERE adisyon_id = " + adisyon_id);
+                            this.Close();
+                        }
                     }
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -936,17 +953,17 @@ namespace sotec_pos
                 DataTable dt = SQL.get("SELECT * FROM musteri WHERE telefon = '" + tb_telefon.Text + "' AND silindi = 0");
                 if (dt.Rows.Count <= 0)
                 {
-                    DataTable dt_m = SQL.get("INSERT INTO musteri (kaydeden_kullanici_id, ad_soyad, telefon, adres) VALUES (" + SQL.kullanici_id + ", '" + tb_ad_soyad.Text + "', '" + tb_telefon.Text + "', '" + tb_adres.Text + "'); SELECT SCOPE_IDENTITY();");
+                    DataTable dt_m = SQL.get("INSERT INTO musteri (kaydeden_kullanici_id, ad_soyad, telefon, " + (cmb_adres.EditValue.ToString() == "1" ? "adres" : "adres_" + cmb_adres.EditValue.ToString()) + ") VALUES (" + SQL.kullanici_id + ", '" + tb_ad_soyad.Text + "', '" + tb_telefon.Text + "', '" + tb_adres.Text + "'); SELECT SCOPE_IDENTITY();");
                     yeni_musteri_id = Convert.ToInt32(dt_m.Rows[0][0]);
                 }
                 else
                 {
-                    SQL.set("UPDATE musteri SET ad_soyad = '" + tb_ad_soyad.Text + "', adres = '" + tb_adres.Text + "' WHERE musteri_id = " + dt.Rows[0]["musteri_id"]);
+                    SQL.set("UPDATE musteri SET ad_soyad = '" + tb_ad_soyad.Text + "', " + (cmb_adres.EditValue.ToString() == "1" ? "adres" : "adres_" + cmb_adres.EditValue.ToString()) + " = '" + tb_adres.Text + "' WHERE musteri_id = " + dt.Rows[0]["musteri_id"]);
                     yeni_musteri_id = Convert.ToInt32(dt.Rows[0]["musteri_id"]);
                 }
             }
 
-            SQL.set("UPDATE adisyon SET musteri_id = " + yeni_musteri_id + ", ad_soyad = '" + tb_ad_soyad.Text + "' WHERE adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+            SQL.set("UPDATE adisyon SET musteri_id = " + yeni_musteri_id + ", ad_soyad = '" + tb_ad_soyad.Text + "', adres = " + cmb_adres.EditValue + " WHERE adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
         }
 
         private bool paket_servis_olur_mu()
@@ -986,6 +1003,22 @@ namespace sotec_pos
 
             musteri_gecmisi m = new musteri_gecmisi(Convert.ToInt32(dt.Rows[0]["musteri_id"]));
             m.ShowDialog();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmb_adres_EditValueChanged(object sender, EventArgs e)
+        {
+            DataTable dt = SQL.get("SELECT * FROM musteri WHERE telefon = '" + tb_telefon.Text + "'");
+            if (dt.Rows.Count <= 0)
+            {
+                return;
+            }
+
+            tb_adres.Text = dt.Rows[0][(cmb_adres.EditValue.ToString() == "1" ? "adres" : "adres_" + cmb_adres.EditValue.ToString())].ToString();
         }
     }
 }

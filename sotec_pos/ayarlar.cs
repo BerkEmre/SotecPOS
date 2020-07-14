@@ -66,6 +66,12 @@ namespace sotec_pos
 
             DataTable dt_donusumler = SQL.get("SELECT kaynak_birim_id = p1.parametre_id, kaynak_birim = p1.deger, hedef_birim_id = p2.parametre_id, hedef_birim = p2.deger, kd.katsayi, kd.donusum_id FROM katsayi_donusum kd INNER JOIN parametreler p1 ON p1.parametre_id = kd.parametre_1_id INNER JOIN parametreler p2 ON p2.parametre_id = kd.parametre_2_id WHERE kd.silindi = 0");
             grid_donusumler.DataSource = dt_donusumler;
+
+            DataTable dt_masa_kapat = SQL.get("SELECT * FROM parametreler WHERE silindi = 0 AND tip = 'masa_kapat'");
+            gridMasaKapat.DataSource = dt_masa_kapat;
+
+            DataTable dt_ikram = SQL.get("SELECT * FROM parametreler WHERE silindi = 0 AND tip = 'ikram_sebep'");
+            gridIkram.DataSource = dt_ikram;
         }
 
         private void grid_masalar_DoubleClick(object sender, EventArgs e)
@@ -140,6 +146,12 @@ namespace sotec_pos
 
             DataTable dt_donusumler = SQL.get("SELECT kaynak_birim_id = p1.parametre_id, kaynak_birim = p1.deger, hedef_birim_id = p2.parametre_id, hedef_birim = p2.deger, kd.katsayi, kd.donusum_id FROM katsayi_donusum kd INNER JOIN parametreler p1 ON p1.parametre_id = kd.parametre_1_id INNER JOIN parametreler p2 ON p2.parametre_id = kd.parametre_2_id WHERE kd.silindi = 0");
             grid_donusumler.DataSource = dt_donusumler;
+
+            DataTable dt_masa_kapat = SQL.get("SELECT * FROM parametreler WHERE silindi = 0 AND tip = 'masa_kapat'");
+            gridMasaKapat.DataSource = dt_masa_kapat;
+
+            DataTable dt_ikram = SQL.get("SELECT * FROM parametreler WHERE silindi = 0 AND tip = 'ikram_sebep'");
+            gridIkram.DataSource = dt_ikram;
         }
 
         private void grid_hedef_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -264,6 +276,20 @@ namespace sotec_pos
                     grid_donusumler.DataSource = dt_donusumler;
                 }
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ayarlar_deger a = new ayarlar_deger(0, "masa_kapat");
+            a.FormClosing += A_FormClosing1;
+            a.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ayarlar_deger a = new ayarlar_deger(0, "ikram_sebep");
+            a.FormClosing += A_FormClosing1;
+            a.ShowDialog();
         }
 
         private void grid_masa_kategori_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)

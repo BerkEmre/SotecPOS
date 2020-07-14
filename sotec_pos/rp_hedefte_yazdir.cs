@@ -30,8 +30,11 @@ namespace sotec_pos
                 "   durum = dr.deger, " +
                 "   sicak_satis = '<ul>' + STUFF(ISNULL((SELECT '<li ' + (CASE ISNULL(uh.urun_id, 0) WHEN 0 THEN 'style=''text-decoration: line-through;''' ELSE '' END) + ' >' +  u1.urun_adi + '</li>' FROM urunler_recete ur INNER JOIN urunler u1 ON u1.urun_id = ur.recete_urunu_id LEFT OUTER JOIN urunler_hareket uh ON uh.silindi = 0 AND uh.referans_id = ak.adisyon_kalem_id AND uh.urun_id = u1.urun_id WHERE ur.silindi = 0 AND ur.receteli_urun_id = u.urun_id FOR XML PATH (''), TYPE).value('.', 'VARCHAR(max)'), ''), 1, 0, '') + '</ul>', " +
                 "   kurye = kurye.ad + ' ' + kurye.soyad, " + 
-                "   a.ad_soyad, " + 
-                "   mst.adres, " + 
+                "   a.ad_soyad, " +
+                "   adres_id = a.adres, " +
+                "   mst.adres, " +
+                "   mst.adres_2, " +
+                "   mst.adres_3, " +
                 "   mst.telefon " +
                 "FROM " + 
                 "   adisyon_kalem ak " + 
@@ -60,7 +63,7 @@ namespace sotec_pos
                 (dt_adisyon_kalem.Rows[0]["kurye"].ToString().Length > 2 ? "KURYE : " + dt_adisyon_kalem.Rows[0]["kurye"].ToString() + "\n" : "") +
                 (dt_adisyon_kalem.Rows[0]["ad_soyad"].ToString().Length > 2 ? "İSİM : " + dt_adisyon_kalem.Rows[0]["ad_soyad"].ToString() + "\n" : "") +
                 (dt_adisyon_kalem.Rows[0]["telefon"].ToString().Length > 2 ? "TEL : " + dt_adisyon_kalem.Rows[0]["telefon"].ToString() + "\n" : "") +
-                (dt_adisyon_kalem.Rows[0]["adres"].ToString().Length > 2 ? "ADRES : " + dt_adisyon_kalem.Rows[0]["adres"].ToString() + "\n" : "");
+                (dt_adisyon_kalem.Rows[0][(dt_adisyon_kalem.Rows[0]["adres_id"].ToString() == "1" ? "adres" : "adres_" + dt_adisyon_kalem.Rows[0]["adres_id"].ToString())].ToString().Length > 0 ? "ADRES : " + dt_adisyon_kalem.Rows[0][(dt_adisyon_kalem.Rows[0]["adres_id"].ToString() == "1" ? "adres" : "adres_" + dt_adisyon_kalem.Rows[0]["adres_id"].ToString())].ToString() + "\n" : "");
 
             XRBinding binding0 = new XRBinding("Text", this.DataSource, "urun_adi", "");
             tc_urun_adi.DataBindings.Add(binding0);

@@ -64,6 +64,18 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.gridMasaKapat = new DevExpress.XtraGrid.GridControl();
+            this.gvMasaKapat = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.gridIkram = new DevExpress.XtraGrid.GridControl();
+            this.gvIkram = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid_masalar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_masalar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_masa_kategori)).BeginInit();
@@ -78,6 +90,12 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_donusumler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_donusumler)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMasaKapat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMasaKapat)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridIkram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIkram)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_log_out
@@ -530,11 +548,155 @@
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 2;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button7);
+            this.groupBox6.Controls.Add(this.gridMasaKapat);
+            this.groupBox6.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox6.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox6.Location = new System.Drawing.Point(742, 383);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(359, 228);
+            this.groupBox6.TabIndex = 41;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "MASA KAPATMA SEÇENEKLERİ";
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.BackColor = System.Drawing.Color.DimGray;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
+            this.button7.FlatAppearance.BorderSize = 5;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button7.ForeColor = System.Drawing.Color.GreenYellow;
+            this.button7.Location = new System.Drawing.Point(6, 178);
+            this.button7.Margin = new System.Windows.Forms.Padding(5);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(347, 40);
+            this.button7.TabIndex = 36;
+            this.button7.Text = "SEÇENEK EKLE";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // gridMasaKapat
+            // 
+            this.gridMasaKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridMasaKapat.Location = new System.Drawing.Point(6, 32);
+            this.gridMasaKapat.MainView = this.gvMasaKapat;
+            this.gridMasaKapat.Name = "gridMasaKapat";
+            this.gridMasaKapat.Size = new System.Drawing.Size(347, 138);
+            this.gridMasaKapat.TabIndex = 35;
+            this.gridMasaKapat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvMasaKapat});
+            // 
+            // gvMasaKapat
+            // 
+            this.gvMasaKapat.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn13,
+            this.gridColumn14});
+            this.gvMasaKapat.GridControl = this.gridMasaKapat;
+            this.gvMasaKapat.Name = "gvMasaKapat";
+            this.gvMasaKapat.OptionsBehavior.Editable = false;
+            this.gvMasaKapat.OptionsView.ShowAutoFilterRow = true;
+            this.gvMasaKapat.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Değer ID";
+            this.gridColumn13.FieldName = "parametre_id";
+            this.gridColumn13.Name = "gridColumn13";
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Değer";
+            this.gridColumn14.FieldName = "deger";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.button8);
+            this.groupBox7.Controls.Add(this.gridIkram);
+            this.groupBox7.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Bold);
+            this.groupBox7.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox7.Location = new System.Drawing.Point(742, 617);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(359, 228);
+            this.groupBox7.TabIndex = 42;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "İKRAM SEÇENEKLERİ";
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.BackColor = System.Drawing.Color.DimGray;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
+            this.button8.FlatAppearance.BorderSize = 5;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button8.ForeColor = System.Drawing.Color.GreenYellow;
+            this.button8.Location = new System.Drawing.Point(6, 178);
+            this.button8.Margin = new System.Windows.Forms.Padding(5);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(347, 40);
+            this.button8.TabIndex = 36;
+            this.button8.Text = "SEÇENEK EKLE";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // gridIkram
+            // 
+            this.gridIkram.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridIkram.Location = new System.Drawing.Point(6, 32);
+            this.gridIkram.MainView = this.gvIkram;
+            this.gridIkram.Name = "gridIkram";
+            this.gridIkram.Size = new System.Drawing.Size(347, 138);
+            this.gridIkram.TabIndex = 35;
+            this.gridIkram.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvIkram});
+            // 
+            // gvIkram
+            // 
+            this.gvIkram.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn15,
+            this.gridColumn16});
+            this.gvIkram.GridControl = this.gridIkram;
+            this.gvIkram.Name = "gvIkram";
+            this.gvIkram.OptionsBehavior.Editable = false;
+            this.gvIkram.OptionsView.ShowAutoFilterRow = true;
+            this.gvIkram.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Değer ID";
+            this.gridColumn15.FieldName = "parametre_id";
+            this.gridColumn15.Name = "gridColumn15";
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Değer";
+            this.gridColumn16.FieldName = "deger";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            // 
             // ayarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 861);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -562,6 +724,12 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_donusumler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_donusumler)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridMasaKapat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvMasaKapat)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridIkram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIkram)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -604,5 +772,17 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button7;
+        private DevExpress.XtraGrid.GridControl gridMasaKapat;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMasaKapat;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button8;
+        private DevExpress.XtraGrid.GridControl gridIkram;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvIkram;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
     }
 }

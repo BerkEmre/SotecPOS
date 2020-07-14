@@ -30,7 +30,7 @@ namespace sotec_pos
             DataTable dt = SQL.get("SELECT * FROM musteri WHERE musteri_id = " + musteri_id);
             label1.Text = dt.Rows[0]["ad_soyad"].ToString();
 
-            dt = SQL.get("SELECT a.ad_soyad, u.urun_adi, a.kayit_tarihi, ak.miktar FROM adisyon a INNER JOIN adisyon_kalem ak ON ak.adisyon_id = a.adisyon_id INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE a.silindi = 0 AND a.musteri_id = " + musteri_id);
+            dt = SQL.get("SELECT a.ad_soyad, u.urun_adi, a.kayit_tarihi, ak.miktar FROM adisyon a INNER JOIN adisyon_kalem ak ON ak.adisyon_id = a.adisyon_id AND ak.silindi = 0 INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE a.silindi = 0 AND a.musteri_id = " + musteri_id);
             grid_urunler.DataSource = dt;
         }
     }
