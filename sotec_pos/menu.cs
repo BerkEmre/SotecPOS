@@ -177,7 +177,7 @@ namespace sotec_pos
                         return;
                     }
 
-                    SQL.set("UPDATE gunler SET bitis_tarihi = GETDATE(), silindi = 1 WHERE gun_id = " + dt_gun.Rows[0]["gun_id"]);
+                    SQL.set("UPDATE gunler SET bitis_tarihi = DATEADD(MINUTE, 1, GETDATE()), silindi = 1 WHERE gun_id = " + dt_gun.Rows[0]["gun_id"]);
                     bt_gun.Text = "Günü Başlat";
                     bt_gun.FlatAppearance.BorderColor = bt_gun.ForeColor = Color.GreenYellow;
                     bt_gun.BackColor = Color.DimGray;

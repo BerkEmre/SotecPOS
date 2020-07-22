@@ -168,5 +168,12 @@ namespace sotec_pos
             u.FormClosing += U_FormClosing;
             u.ShowDialog();
         }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            urun_menu i = new urun_menu();
+            i.FormClosing += U_FormClosing;
+            i.ShowDialog();
+        }
     }
 }

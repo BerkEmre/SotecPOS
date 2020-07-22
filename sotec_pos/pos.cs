@@ -104,7 +104,7 @@ namespace sotec_pos
                                 val += dt_adisyon_kalem.Rows[i]["urun_adi"].ToString() + " x " + Convert.ToDecimal(dt_adisyon_kalem.Rows[i]["miktar"]).ToString("n2") + " = " + Convert.ToDecimal(dt_adisyon_kalem.Rows[i]["tutar"]).ToString("c2") + "\n";
                             }
 
-                            DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                            DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                             top_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
                             DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                             odenen = Convert.ToDecimal(dt_finans.Rows[0]["top_tutar"]);
@@ -170,9 +170,9 @@ namespace sotec_pos
 
         private void grid_masalar_DoubleClick(object sender, EventArgs e)
         {
-            pos_masa p = new pos_masa(Convert.ToInt32(tv_masalar.GetDataRow(tv_masalar.GetSelectedRows()[0])["masa_id"].ToString()), this, m);
+            /*pos_masa p = new pos_masa(Convert.ToInt32(tv_masalar.GetDataRow(tv_masalar.GetSelectedRows()[0])["masa_id"].ToString()), this, m);
             p.FormClosing += P_FormClosing;
-            p.ShowDialog();
+            p.ShowDialog();*/
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -197,6 +197,18 @@ namespace sotec_pos
         private void btn_paket_servis_Click(object sender, EventArgs e)
         {
             pos_masa p = new pos_masa(-1, this, m);
+            p.FormClosing += P_FormClosing;
+            p.ShowDialog();
+        }
+
+        private void tv_masalar_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+
+        }
+
+        private void tv_masalar_ItemDoubleClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+            pos_masa p = new pos_masa(Convert.ToInt32(tv_masalar.GetDataRow(tv_masalar.GetSelectedRows()[0])["masa_id"].ToString()), this, m);
             p.FormClosing += P_FormClosing;
             p.ShowDialog();
         }

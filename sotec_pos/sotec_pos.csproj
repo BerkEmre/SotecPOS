@@ -349,6 +349,18 @@
     <Compile Include="pos_masa_masa_kapat.Designer.cs">
       <DependentUpon>pos_masa_masa_kapat.cs</DependentUpon>
     </Compile>
+    <Compile Include="pos_masa_menu_sec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_menu_sec.Designer.cs">
+      <DependentUpon>pos_masa_menu_sec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pos_masa_menu_urun_sec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pos_masa_menu_urun_sec.Designer.cs">
+      <DependentUpon>pos_masa_menu_urun_sec.cs</DependentUpon>
+    </Compile>
     <Compile Include="pos_masa_satis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -586,6 +598,12 @@
     <Compile Include="uc_tarih_sec.Designer.cs">
       <DependentUpon>uc_tarih_sec.cs</DependentUpon>
     </Compile>
+    <Compile Include="urun_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="urun_menu.Designer.cs">
+      <DependentUpon>urun_menu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ayarlar.resx">
       <DependentUpon>ayarlar.cs</DependentUpon>
     </EmbeddedResource>
@@ -693,6 +711,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pos_masa_masa_kapat.resx">
       <DependentUpon>pos_masa_masa_kapat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_menu_sec.resx">
+      <DependentUpon>pos_masa_menu_sec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pos_masa_menu_urun_sec.resx">
+      <DependentUpon>pos_masa_menu_urun_sec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pos_masa_satis.resx">
       <DependentUpon>pos_masa_satis.cs</DependentUpon>
@@ -815,6 +839,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uc_tarih_sec.resx">
       <DependentUpon>uc_tarih_sec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="urun_menu.resx">
+      <DependentUpon>urun_menu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

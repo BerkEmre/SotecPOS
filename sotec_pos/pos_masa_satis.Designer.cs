@@ -36,7 +36,9 @@
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
@@ -44,38 +46,44 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition4 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition5 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition6 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition5 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition6 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition7 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableSpan tableSpan3 = new DevExpress.XtraEditors.TableLayout.TableSpan();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan4 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue3 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition7 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition8 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition9 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition7 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition8 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition9 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan4 = new DevExpress.XtraEditors.TableLayout.TableSpan();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition10 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition11 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan5 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan6 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement11 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement12 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement13 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement14 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement15 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement16 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement17 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.tileViewColumn2 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn3 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn10 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn11 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn12 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn19 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn20 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn6 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn5 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn8 = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -83,6 +91,7 @@
             this.tileViewColumn13 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn14 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn15 = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumn21 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -142,7 +151,6 @@
             this.tv_odenecekler = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.tileViewColumn7 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.tileViewColumn18 = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumn19 = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_adisyon)).BeginInit();
@@ -204,6 +212,24 @@
             this.tileViewColumn12.Name = "tileViewColumn12";
             this.tileViewColumn12.Visible = true;
             this.tileViewColumn12.VisibleIndex = 5;
+            // 
+            // tileViewColumn19
+            // 
+            this.tileViewColumn19.Caption = "Ödenen Miktar";
+            this.tileViewColumn19.DisplayFormat.FormatString = "n2";
+            this.tileViewColumn19.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tileViewColumn19.FieldName = "odenen_miktar";
+            this.tileViewColumn19.Name = "tileViewColumn19";
+            this.tileViewColumn19.Visible = true;
+            this.tileViewColumn19.VisibleIndex = 8;
+            // 
+            // tileViewColumn20
+            // 
+            this.tileViewColumn20.Caption = "Menü";
+            this.tileViewColumn20.FieldName = "menu";
+            this.tileViewColumn20.Name = "tileViewColumn20";
+            this.tileViewColumn20.Visible = true;
+            this.tileViewColumn20.VisibleIndex = 9;
             // 
             // tileViewColumn6
             // 
@@ -268,6 +294,14 @@
             this.tileViewColumn15.Name = "tileViewColumn15";
             this.tileViewColumn15.Visible = true;
             this.tileViewColumn15.VisibleIndex = 5;
+            // 
+            // tileViewColumn21
+            // 
+            this.tileViewColumn21.Caption = "Menü";
+            this.tileViewColumn21.FieldName = "menu";
+            this.tileViewColumn21.Name = "tileViewColumn21";
+            this.tileViewColumn21.Visible = true;
+            this.tileViewColumn21.VisibleIndex = 7;
             // 
             // panel1
             // 
@@ -396,7 +430,8 @@
             this.tileViewColumn12,
             this.tileViewColumn16,
             this.tileViewColumn17,
-            this.tileViewColumn19});
+            this.tileViewColumn19,
+            this.tileViewColumn20});
             gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Name = "kapali";
             formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.DimGray;
@@ -420,11 +455,19 @@
             this.tv_adisyon.TileColumns.Add(tableColumnDefinition1);
             this.tv_adisyon.TileColumns.Add(tableColumnDefinition2);
             this.tv_adisyon.TileColumns.Add(tableColumnDefinition3);
+            tableRowDefinition1.Length.Value = 19D;
+            tableRowDefinition2.Length.Value = 13D;
+            tableRowDefinition3.Length.Value = 16D;
+            tableRowDefinition4.Length.Value = 16D;
             this.tv_adisyon.TileRows.Add(tableRowDefinition1);
             this.tv_adisyon.TileRows.Add(tableRowDefinition2);
             this.tv_adisyon.TileRows.Add(tableRowDefinition3);
+            this.tv_adisyon.TileRows.Add(tableRowDefinition4);
             tableSpan1.ColumnSpan = 3;
+            tableSpan2.ColumnSpan = 3;
+            tableSpan2.RowIndex = 1;
             this.tv_adisyon.TileSpans.Add(tableSpan1);
+            this.tv_adisyon.TileSpans.Add(tableSpan2);
             tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
             tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
@@ -441,7 +484,7 @@
             tileViewItemElement2.Column = this.tileViewColumn3;
             tileViewItemElement2.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement2.RowIndex = 1;
+            tileViewItemElement2.RowIndex = 2;
             tileViewItemElement2.Text = "tileViewColumn3";
             tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -452,7 +495,7 @@
             tileViewItemElement3.ColumnIndex = 2;
             tileViewItemElement3.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement3.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement3.RowIndex = 2;
+            tileViewItemElement3.RowIndex = 3;
             tileViewItemElement3.Text = "tileViewColumn10";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement4.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -463,7 +506,7 @@
             tileViewItemElement4.ColumnIndex = 2;
             tileViewItemElement4.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement4.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement4.RowIndex = 1;
+            tileViewItemElement4.RowIndex = 2;
             tileViewItemElement4.Text = "tileViewColumn11";
             tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             tileViewItemElement5.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -472,7 +515,7 @@
             tileViewItemElement5.ColumnIndex = 1;
             tileViewItemElement5.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement5.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement5.RowIndex = 2;
+            tileViewItemElement5.RowIndex = 3;
             tileViewItemElement5.Text = "tileViewColumn11";
             tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             tileViewItemElement6.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -480,7 +523,7 @@
             tileViewItemElement6.Column = this.tileViewColumn12;
             tileViewItemElement6.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement6.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement6.RowIndex = 2;
+            tileViewItemElement6.RowIndex = 3;
             tileViewItemElement6.Text = "tileViewColumn12";
             tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold);
@@ -491,9 +534,20 @@
             tileViewItemElement7.ColumnIndex = 1;
             tileViewItemElement7.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement7.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement7.RowIndex = 1;
+            tileViewItemElement7.RowIndex = 2;
             tileViewItemElement7.Text = "tileViewColumn19";
             tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
+            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement8.Column = this.tileViewColumn20;
+            tileViewItemElement8.ColumnIndex = 2;
+            tileViewItemElement8.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement8.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement8.RowIndex = 1;
+            tileViewItemElement8.Text = "tileViewColumn20";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement1);
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement2);
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement3);
@@ -501,6 +555,7 @@
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement5);
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement6);
             this.tv_adisyon.TileTemplate.Add(tileViewItemElement7);
+            this.tv_adisyon.TileTemplate.Add(tileViewItemElement8);
             this.tv_adisyon.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tv_adisyon_ItemCustomize);
             // 
             // tileViewColumn1
@@ -1185,6 +1240,7 @@
             this.pnl_kok.Name = "pnl_kok";
             this.pnl_kok.Size = new System.Drawing.Size(567, 685);
             this.pnl_kok.TabIndex = 94;
+            this.pnl_kok.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_kok_Paint);
             // 
             // grid_odemeler
             // 
@@ -1226,38 +1282,38 @@
             this.tv_odemeler.TileColumns.Add(tableColumnDefinition4);
             this.tv_odemeler.TileColumns.Add(tableColumnDefinition5);
             this.tv_odemeler.TileColumns.Add(tableColumnDefinition6);
-            this.tv_odemeler.TileRows.Add(tableRowDefinition4);
             this.tv_odemeler.TileRows.Add(tableRowDefinition5);
             this.tv_odemeler.TileRows.Add(tableRowDefinition6);
-            tableSpan2.ColumnSpan = 3;
-            tableSpan2.RowSpan = 2;
-            tableSpan3.ColumnIndex = 1;
-            tableSpan3.ColumnSpan = 2;
-            tableSpan3.RowIndex = 2;
-            this.tv_odemeler.TileSpans.Add(tableSpan2);
+            this.tv_odemeler.TileRows.Add(tableRowDefinition7);
+            tableSpan3.ColumnSpan = 3;
+            tableSpan3.RowSpan = 2;
+            tableSpan4.ColumnIndex = 1;
+            tableSpan4.ColumnSpan = 2;
+            tableSpan4.RowIndex = 2;
             this.tv_odemeler.TileSpans.Add(tableSpan3);
-            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement8.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
-            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement8.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement8.Column = this.tileViewColumn6;
-            tileViewItemElement8.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement8.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement8.Text = "tileViewColumn6";
-            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileViewItemElement9.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement9.Appearance.Normal.ForeColor = System.Drawing.Color.GreenYellow;
+            this.tv_odemeler.TileSpans.Add(tableSpan4);
+            tileViewItemElement9.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement9.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
             tileViewItemElement9.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement9.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement9.Column = this.tileViewColumn5;
-            tileViewItemElement9.ColumnIndex = 2;
+            tileViewItemElement9.Column = this.tileViewColumn6;
             tileViewItemElement9.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement9.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement9.RowIndex = 2;
-            tileViewItemElement9.Text = "tileViewColumn5";
-            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tv_odemeler.TileTemplate.Add(tileViewItemElement8);
+            tileViewItemElement9.Text = "tileViewColumn6";
+            tileViewItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileViewItemElement10.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement10.Appearance.Normal.ForeColor = System.Drawing.Color.GreenYellow;
+            tileViewItemElement10.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement10.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement10.Column = this.tileViewColumn5;
+            tileViewItemElement10.ColumnIndex = 2;
+            tileViewItemElement10.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement10.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement10.RowIndex = 2;
+            tileViewItemElement10.Text = "tileViewColumn5";
+            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             this.tv_odemeler.TileTemplate.Add(tileViewItemElement9);
+            this.tv_odemeler.TileTemplate.Add(tileViewItemElement10);
             // 
             // tileViewColumn4
             // 
@@ -1290,7 +1346,8 @@
             this.tileViewColumn13,
             this.tileViewColumn14,
             this.tileViewColumn15,
-            this.tileViewColumn18});
+            this.tileViewColumn18,
+            this.tileViewColumn21});
             gridFormatRule3.ApplyToRow = true;
             gridFormatRule3.Name = "kapali";
             formatConditionRuleValue3.Appearance.BackColor = System.Drawing.Color.DimGray;
@@ -1314,54 +1371,53 @@
             this.tv_odenecekler.TileColumns.Add(tableColumnDefinition7);
             this.tv_odenecekler.TileColumns.Add(tableColumnDefinition8);
             this.tv_odenecekler.TileColumns.Add(tableColumnDefinition9);
-            this.tv_odenecekler.TileRows.Add(tableRowDefinition7);
+            tableRowDefinition8.Length.Value = 19D;
+            tableRowDefinition9.Length.Value = 13D;
+            tableRowDefinition10.Length.Value = 16D;
+            tableRowDefinition11.Length.Value = 16D;
             this.tv_odenecekler.TileRows.Add(tableRowDefinition8);
             this.tv_odenecekler.TileRows.Add(tableRowDefinition9);
-            tableSpan4.ColumnSpan = 3;
-            this.tv_odenecekler.TileSpans.Add(tableSpan4);
-            tileViewItemElement10.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement10.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
-            tileViewItemElement10.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement10.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement10.Column = this.tileViewColumn8;
-            tileViewItemElement10.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            tileViewItemElement10.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement10.Text = "tileViewColumn8";
-            tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
-            tileViewItemElement11.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement11.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
+            this.tv_odenecekler.TileRows.Add(tableRowDefinition10);
+            this.tv_odenecekler.TileRows.Add(tableRowDefinition11);
+            tableSpan5.ColumnSpan = 3;
+            tableSpan6.ColumnSpan = 3;
+            tableSpan6.RowIndex = 1;
+            this.tv_odenecekler.TileSpans.Add(tableSpan5);
+            this.tv_odenecekler.TileSpans.Add(tableSpan6);
+            tileViewItemElement11.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement11.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
             tileViewItemElement11.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement11.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement11.Column = this.tileViewColumn9;
-            tileViewItemElement11.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement11.Column = this.tileViewColumn8;
+            tileViewItemElement11.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
             tileViewItemElement11.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement11.RowIndex = 1;
-            tileViewItemElement11.Text = "tileViewColumn9";
-            tileViewItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            tileViewItemElement12.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement12.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
+            tileViewItemElement11.Text = "tileViewColumn8";
+            tileViewItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileViewItemElement12.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement12.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
             tileViewItemElement12.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement12.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement12.Column = this.tileViewColumn13;
-            tileViewItemElement12.ColumnIndex = 2;
+            tileViewItemElement12.Column = this.tileViewColumn9;
             tileViewItemElement12.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement12.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
             tileViewItemElement12.RowIndex = 2;
-            tileViewItemElement12.Text = "tileViewColumn13";
+            tileViewItemElement12.Text = "tileViewColumn9";
             tileViewItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement13.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            tileViewItemElement13.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
+            tileViewItemElement13.Appearance.Normal.ForeColor = System.Drawing.Color.DimGray;
             tileViewItemElement13.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement13.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement13.Column = this.tileViewColumn14;
-            tileViewItemElement13.ColumnIndex = 1;
+            tileViewItemElement13.Column = this.tileViewColumn13;
+            tileViewItemElement13.ColumnIndex = 2;
             tileViewItemElement13.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement13.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement13.RowIndex = 1;
-            tileViewItemElement13.Text = "tileViewColumn14";
-            tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
-            tileViewItemElement14.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement13.RowIndex = 3;
+            tileViewItemElement13.Text = "tileViewColumn13";
+            tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement14.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement14.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
             tileViewItemElement14.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement14.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement14.Column = this.tileViewColumn14;
             tileViewItemElement14.ColumnIndex = 1;
             tileViewItemElement14.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
@@ -1371,18 +1427,39 @@
             tileViewItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             tileViewItemElement15.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             tileViewItemElement15.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement15.Column = this.tileViewColumn15;
+            tileViewItemElement15.Column = this.tileViewColumn14;
+            tileViewItemElement15.ColumnIndex = 1;
             tileViewItemElement15.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement15.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileViewItemElement15.RowIndex = 2;
-            tileViewItemElement15.Text = "tileViewColumn15";
-            tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
-            this.tv_odenecekler.TileTemplate.Add(tileViewItemElement10);
+            tileViewItemElement15.RowIndex = 3;
+            tileViewItemElement15.Text = "tileViewColumn14";
+            tileViewItemElement15.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
+            tileViewItemElement16.Appearance.Normal.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            tileViewItemElement16.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement16.Column = this.tileViewColumn15;
+            tileViewItemElement16.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement16.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement16.RowIndex = 3;
+            tileViewItemElement16.Text = "tileViewColumn15";
+            tileViewItemElement16.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
+            tileViewItemElement17.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement17.Appearance.Normal.ForeColor = System.Drawing.Color.YellowGreen;
+            tileViewItemElement17.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement17.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement17.Column = this.tileViewColumn21;
+            tileViewItemElement17.ColumnIndex = 2;
+            tileViewItemElement17.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement17.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement17.RowIndex = 1;
+            tileViewItemElement17.Text = "tileViewColumn21";
+            tileViewItemElement17.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleLeft;
             this.tv_odenecekler.TileTemplate.Add(tileViewItemElement11);
             this.tv_odenecekler.TileTemplate.Add(tileViewItemElement12);
             this.tv_odenecekler.TileTemplate.Add(tileViewItemElement13);
             this.tv_odenecekler.TileTemplate.Add(tileViewItemElement14);
             this.tv_odenecekler.TileTemplate.Add(tileViewItemElement15);
+            this.tv_odenecekler.TileTemplate.Add(tileViewItemElement16);
+            this.tv_odenecekler.TileTemplate.Add(tileViewItemElement17);
             // 
             // tileViewColumn7
             // 
@@ -1399,16 +1476,6 @@
             this.tileViewColumn18.Name = "tileViewColumn18";
             this.tileViewColumn18.Visible = true;
             this.tileViewColumn18.VisibleIndex = 6;
-            // 
-            // tileViewColumn19
-            // 
-            this.tileViewColumn19.Caption = "Ödenen Miktar";
-            this.tileViewColumn19.DisplayFormat.FormatString = "n2";
-            this.tileViewColumn19.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.tileViewColumn19.FieldName = "odenen_miktar";
-            this.tileViewColumn19.Name = "tileViewColumn19";
-            this.tileViewColumn19.Visible = true;
-            this.tileViewColumn19.VisibleIndex = 8;
             // 
             // pos_masa_satis
             // 
@@ -1523,5 +1590,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn19;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn20;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumn21;
     }
 }

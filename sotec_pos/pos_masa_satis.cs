@@ -47,6 +47,7 @@ namespace sotec_pos
             dt_secili.Columns.Add("tutar", typeof(Decimal));
             dt_secili.Columns.Add("fiyat", typeof(Decimal));
             dt_secili.Columns.Add("olcu_birimi", typeof(String));
+            dt_secili.Columns.Add("menu", typeof(String));
             grid_odenecekler.DataSource = dt_secili;
 
             DataTable dt_masa = SQL.get("SELECT masa_adi, masa_id FROM masalar WHERE masa_id = " + masa_id);
@@ -56,10 +57,10 @@ namespace sotec_pos
             DataTable dt_adisyon = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
             if (dt_adisyon.Rows.Count != 0) {
                 adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
                 grid_adisyon.DataSource = dt_adisyon_kalem;
 
-                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                 toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
                 DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -260,6 +261,7 @@ namespace sotec_pos
                     dr["tutar"] = dr_secilen["tutar"];
                     dr["fiyat"] = dr_secilen["fiyat"];
                     dr["olcu_birimi"] = dr_secilen["olcu_birimi"];
+                    dr["menu"] = dr_secilen["menu"];
                     dt_secili.Rows.Add(dr);
                 }
             }
@@ -329,10 +331,10 @@ namespace sotec_pos
                 dt_secili.Rows.Clear();
 
                 adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
                 grid_adisyon.DataSource = dt_adisyon_kalem;
 
-                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                 toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
                 DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -346,7 +348,7 @@ namespace sotec_pos
             lbl_odenen.Text = odenen.ToString("c2");
             lbl_kalan.Text = (toplam_tutar - odenen).ToString("c2");
 
-            new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2"): "")).ShowDialog();
+            //new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2"): "")).ShowDialog();
             tb_miktar.Value = 0;
         }
 
@@ -390,10 +392,10 @@ namespace sotec_pos
                 dt_secili.Rows.Clear();
 
                 adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
                 grid_adisyon.DataSource = dt_adisyon_kalem;
 
-                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                 toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
                 DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -407,7 +409,7 @@ namespace sotec_pos
             lbl_odenen.Text = odenen.ToString("c2");
             lbl_kalan.Text = (toplam_tutar - odenen).ToString("c2");
 
-            new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2") : "")).ShowDialog();
+            //new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2") : "")).ShowDialog();
             tb_miktar.Value = 0;
         }
 
@@ -451,10 +453,10 @@ namespace sotec_pos
                 dt_secili.Rows.Clear();
 
                 adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
                 grid_adisyon.DataSource = dt_adisyon_kalem;
 
-                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                 toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
                 DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -468,7 +470,7 @@ namespace sotec_pos
             lbl_odenen.Text = odenen.ToString("c2");
             lbl_kalan.Text = (toplam_tutar - odenen).ToString("c2");
 
-            new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2") : "")).ShowDialog();
+            //new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Para Üstü: " + para_ustu.ToString("c2") : "")).ShowDialog();
             tb_miktar.Value = 0;
         }
 
@@ -522,7 +524,7 @@ namespace sotec_pos
                         dt_secili.Rows[i]["miktar"] = (Convert.ToDecimal(dr_secilen["miktar"]) - Convert.ToDecimal(dr_secilen["odenen_miktar"]));
                     else
                         dt_secili.Rows[i]["miktar"] = Convert.ToDecimal(dt_secili.Rows[i]["miktar"]) + odenecek_miktar;
-                    dt_secili.Rows[i]["tutar"] = (Convert.ToDecimal(dt_secili.Rows[i]["miktar"]) - Convert.ToDecimal(dt_secili.Rows[i]["ikram_miktar"])) * Convert.ToDecimal(dt_secili.Rows[i]["fiyat"]);
+                    dt_secili.Rows[i]["tutar"] = (dr_secilen["menu"].ToString().Length == 0 ? (odenecek_miktar - Convert.ToDecimal(dr_secilen["ikram_miktar"])) * Convert.ToDecimal(dr_secilen["fiyat"]) : Convert.ToDecimal(dr_secilen["tutar"]));//(Convert.ToDecimal(dt_secili.Rows[i]["miktar"]) - Convert.ToDecimal(dt_secili.Rows[i]["ikram_miktar"])) * Convert.ToDecimal(dt_secili.Rows[i]["fiyat"]);
                     varmi = true;
                 }
             }
@@ -534,9 +536,10 @@ namespace sotec_pos
                 dr["urun_adi"] = dr_secilen["urun_adi"];
                 dr["miktar"] = odenecek_miktar;
                 dr["ikram_miktar"] = dr_secilen["ikram_miktar"];
-                dr["tutar"] = (odenecek_miktar - Convert.ToDecimal(dr_secilen["ikram_miktar"])) * Convert.ToDecimal(dr_secilen["fiyat"]);//dr_secilen["tutar"];
+                dr["tutar"] = (dr_secilen["menu"].ToString().Length == 0 ? (odenecek_miktar - Convert.ToDecimal(dr_secilen["ikram_miktar"])) * Convert.ToDecimal(dr_secilen["fiyat"]): Convert.ToDecimal(dr_secilen["tutar"]));//dr_secilen["tutar"];
                 dr["fiyat"] = dr_secilen["fiyat"];
                 dr["olcu_birimi"] = dr_secilen["olcu_birimi"];
+                dr["menu"] = dr_secilen["menu"];
                 dt_secili.Rows.Add(dr);
             }
             
@@ -591,10 +594,10 @@ namespace sotec_pos
             DataTable dt_adisyon = SQL.get("SELECT adisyon_id FROM adisyon WHERE silindi = 0 AND kapandi = 0 AND masa_id = " + masa_id);
 
             adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-            DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+            DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
             grid_adisyon.DataSource = dt_adisyon_kalem;
 
-            DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+            DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
             toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
             DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -655,10 +658,10 @@ namespace sotec_pos
                 dt_secili.Rows.Clear();
 
                 adisyon_id = Convert.ToInt32(dt_adisyon.Rows[0]["adisyon_id"]);
-                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = (ak.miktar - ak.ikram_miktar) * u.fiyat, olcu_birimi = p.deger FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
+                DataTable dt_adisyon_kalem = SQL.get("SELECT ak.odenen_miktar, u.fiyat, ak.odendi, ak.adisyon_kalem_id, u.urun_adi, ak.miktar, ak.ikram_miktar, tutar = CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END, olcu_birimi = p.deger, mn.menu FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id INNER JOIN parametreler p ON p.parametre_id = u.olcu_birimi_parametre_id LEFT OUTER JOIN menuler mn ON mn.menu_id = ak.menu_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"] + " ORDER by (CASE ak.odendi WHEN 0 THEN 0 ELSE 1 END), (ak.miktar - ak.odenen_miktar) DESC");
                 grid_adisyon.DataSource = dt_adisyon_kalem;
 
-                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM((ak.miktar - ak.ikram_miktar) * u.fiyat), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
+                DataTable dt_adisyon_fiyat = SQL.get("SELECT top_tutar = ISNULL(SUM(CASE ak.menu_id WHEN 0 THEN (ak.miktar - ak.ikram_miktar) * u.fiyat ELSE ak.fiyat END), 0.0000) FROM adisyon_kalem ak INNER JOIN urunler u ON u.urun_id = ak.urun_id WHERE ak.silindi = 0 AND ak.adisyon_id = " + dt_adisyon.Rows[0]["adisyon_id"]);
                 toplam_tutar = Convert.ToDecimal(dt_adisyon_fiyat.Rows[0]["top_tutar"]);
 
                 DataTable dt_finans = SQL.get("SELECT top_tutar = ISNULL(SUM(miktar), 0.0000) FROM finans_hareket WHERE silindi = 0 AND hareket_tipi_parametre_id IN (25, 26, 27, 59) AND referans_id = " + adisyon_id);
@@ -672,8 +675,13 @@ namespace sotec_pos
             lbl_odenen.Text = odenen.ToString("c2");
             lbl_kalan.Text = (toplam_tutar - odenen).ToString("c2");
 
-            new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Kalan Tutar: " + para_ustu.ToString("c2") : "")).ShowDialog();
+            //new mesaj("Ödeme Alındı!\n" + (para_ustu > 0 ? "Kalan Tutar: " + para_ustu.ToString("c2") : "")).ShowDialog();
             tb_miktar.Value = 0;
+        }
+
+        private void pnl_kok_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

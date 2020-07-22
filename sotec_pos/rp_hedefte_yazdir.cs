@@ -28,7 +28,7 @@ namespace sotec_pos
                 "   olcu_birimi = p.deger, " + 
                 "   ak.durum_parametre_id, " + 
                 "   durum = dr.deger, " +
-                "   sicak_satis = '<ul>' + STUFF(ISNULL((SELECT '<li ' + (CASE ISNULL(uh.urun_id, 0) WHEN 0 THEN 'style=''text-decoration: line-through;''' ELSE '' END) + ' >' +  u1.urun_adi + '</li>' FROM urunler_recete ur INNER JOIN urunler u1 ON u1.urun_id = ur.recete_urunu_id LEFT OUTER JOIN urunler_hareket uh ON uh.silindi = 0 AND uh.referans_id = ak.adisyon_kalem_id AND uh.urun_id = u1.urun_id WHERE ur.silindi = 0 AND ur.receteli_urun_id = u.urun_id FOR XML PATH (''), TYPE).value('.', 'VARCHAR(max)'), ''), 1, 0, '') + '</ul>', " +
+                "   sicak_satis = '<ul>' + STUFF(ISNULL((SELECT '<li ' + (CASE ISNULL(uh.urun_id, 0) WHEN 0 THEN 'style=''text-decoration: line-through;''' ELSE '' END) + ' >' + (CASE ISNULL(uh.urun_id, 0) WHEN 0 THEN '(-)' ELSE '' END) + u1.urun_adi + '</li>' FROM urunler_recete ur INNER JOIN urunler u1 ON u1.urun_id = ur.recete_urunu_id LEFT OUTER JOIN urunler_hareket uh ON uh.silindi = 0 AND uh.referans_id = ak.adisyon_kalem_id AND uh.urun_id = u1.urun_id WHERE ur.silindi = 0 AND ur.receteli_urun_id = u.urun_id FOR XML PATH (''), TYPE).value('.', 'VARCHAR(max)'), ''), 1, 0, '') + '</ul>', " +
                 "   kurye = kurye.ad + ' ' + kurye.soyad, " + 
                 "   a.ad_soyad, " +
                 "   adres_id = a.adres, " +
