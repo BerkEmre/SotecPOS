@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.lbl_urun_adi = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_miktar = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_birim_fiyat = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_tutar = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_menu = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -37,7 +42,7 @@
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.lbl_miktar = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xr = new DevExpress.XtraReports.UI.XRTableCell();
             this.lbl_masa_adi = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
@@ -50,11 +55,6 @@
             this.lbl_adres_bilgileri = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbl_toplam_tutar = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_urun_adi = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_birim_fiyat = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_tutar = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_menu = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -62,7 +62,7 @@
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.lbl_urun_adi,
-            this.xrLabel5,
+            this.lbl_miktar,
             this.lbl_birim_fiyat,
             this.lbl_tutar,
             this.lbl_menu});
@@ -71,6 +71,91 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // lbl_urun_adi
+            // 
+            this.lbl_urun_adi.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lbl_urun_adi.CanGrow = false;
+            this.lbl_urun_adi.Dpi = 254F;
+            this.lbl_urun_adi.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_urun_adi.LocationFloat = new DevExpress.Utils.PointFloat(0.0002883729F, 0F);
+            this.lbl_urun_adi.Name = "lbl_urun_adi";
+            this.lbl_urun_adi.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_urun_adi.SizeF = new System.Drawing.SizeF(290.0604F, 63.5F);
+            this.lbl_urun_adi.StylePriority.UseBorders = false;
+            this.lbl_urun_adi.StylePriority.UseFont = false;
+            this.lbl_urun_adi.StylePriority.UsePadding = false;
+            this.lbl_urun_adi.StylePriority.UseTextAlignment = false;
+            this.lbl_urun_adi.Text = "Double Cheese Burger";
+            this.lbl_urun_adi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lbl_miktar
+            // 
+            this.lbl_miktar.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lbl_miktar.CanGrow = false;
+            this.lbl_miktar.Dpi = 254F;
+            this.lbl_miktar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_miktar.LocationFloat = new DevExpress.Utils.PointFloat(290.0607F, 0F);
+            this.lbl_miktar.Name = "lbl_miktar";
+            this.lbl_miktar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_miktar.SizeF = new System.Drawing.SizeF(68.05362F, 63.5F);
+            this.lbl_miktar.StylePriority.UseBorders = false;
+            this.lbl_miktar.StylePriority.UseFont = false;
+            this.lbl_miktar.StylePriority.UsePadding = false;
+            this.lbl_miktar.StylePriority.UseTextAlignment = false;
+            this.lbl_miktar.Text = "x3";
+            this.lbl_miktar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // lbl_birim_fiyat
+            // 
+            this.lbl_birim_fiyat.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lbl_birim_fiyat.CanGrow = false;
+            this.lbl_birim_fiyat.Dpi = 254F;
+            this.lbl_birim_fiyat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_birim_fiyat.LocationFloat = new DevExpress.Utils.PointFloat(358.1143F, 0F);
+            this.lbl_birim_fiyat.Name = "lbl_birim_fiyat";
+            this.lbl_birim_fiyat.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_birim_fiyat.SizeF = new System.Drawing.SizeF(112.5831F, 63.5F);
+            this.lbl_birim_fiyat.StylePriority.UseBorders = false;
+            this.lbl_birim_fiyat.StylePriority.UseFont = false;
+            this.lbl_birim_fiyat.StylePriority.UsePadding = false;
+            this.lbl_birim_fiyat.StylePriority.UseTextAlignment = false;
+            this.lbl_birim_fiyat.Text = "22,50₺";
+            this.lbl_birim_fiyat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lbl_tutar
+            // 
+            this.lbl_tutar.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lbl_tutar.CanGrow = false;
+            this.lbl_tutar.Dpi = 254F;
+            this.lbl_tutar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_tutar.LocationFloat = new DevExpress.Utils.PointFloat(470.6974F, 0F);
+            this.lbl_tutar.Name = "lbl_tutar";
+            this.lbl_tutar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_tutar.SizeF = new System.Drawing.SizeF(129.3026F, 63.5F);
+            this.lbl_tutar.StylePriority.UseBorders = false;
+            this.lbl_tutar.StylePriority.UseFont = false;
+            this.lbl_tutar.StylePriority.UsePadding = false;
+            this.lbl_tutar.StylePriority.UseTextAlignment = false;
+            this.lbl_tutar.Text = "5,25₺";
+            this.lbl_tutar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lbl_menu
+            // 
+            this.lbl_menu.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.lbl_menu.CanGrow = false;
+            this.lbl_menu.Dpi = 254F;
+            this.lbl_menu.Font = new System.Drawing.Font("Bahnschrift", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_menu.LocationFloat = new DevExpress.Utils.PointFloat(0F, 63.50002F);
+            this.lbl_menu.Name = "lbl_menu";
+            this.lbl_menu.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_menu.SizeF = new System.Drawing.SizeF(599.9996F, 24.66951F);
+            this.lbl_menu.StylePriority.UseBorders = false;
+            this.lbl_menu.StylePriority.UseFont = false;
+            this.lbl_menu.StylePriority.UsePadding = false;
+            this.lbl_menu.StylePriority.UseTextAlignment = false;
+            this.lbl_menu.Text = "xrTableCell1";
+            this.lbl_menu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // TopMargin
             // 
@@ -119,7 +204,7 @@
             this.xrTableCell2,
             this.xrTableCell3,
             this.xrTableCell4,
-            this.lbl_miktar});
+            this.xr});
             this.xrTableRow2.Dpi = 254F;
             this.xrTableRow2.Name = "xrTableRow2";
             this.xrTableRow2.Weight = 1D;
@@ -163,18 +248,18 @@
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell4.Weight = 0.74314728691557874D;
             // 
-            // lbl_miktar
+            // xr
             // 
-            this.lbl_miktar.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.lbl_miktar.Dpi = 254F;
-            this.lbl_miktar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_miktar.Name = "lbl_miktar";
-            this.lbl_miktar.StylePriority.UseBorders = false;
-            this.lbl_miktar.StylePriority.UseFont = false;
-            this.lbl_miktar.StylePriority.UseTextAlignment = false;
-            this.lbl_miktar.Text = "Toplam";
-            this.lbl_miktar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.lbl_miktar.Weight = 0.8535101624764303D;
+            this.xr.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xr.Dpi = 254F;
+            this.xr.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.xr.Name = "xr";
+            this.xr.StylePriority.UseBorders = false;
+            this.xr.StylePriority.UseFont = false;
+            this.xr.StylePriority.UseTextAlignment = false;
+            this.xr.Text = "Toplam";
+            this.xr.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xr.Weight = 0.8535101624764303D;
             // 
             // lbl_masa_adi
             // 
@@ -330,87 +415,6 @@
             this.lbl_toplam_tutar.Text = "507.55₺";
             this.lbl_toplam_tutar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
-            // lbl_urun_adi
-            // 
-            this.lbl_urun_adi.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lbl_urun_adi.CanGrow = false;
-            this.lbl_urun_adi.Dpi = 254F;
-            this.lbl_urun_adi.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_urun_adi.LocationFloat = new DevExpress.Utils.PointFloat(0.0002883729F, 0F);
-            this.lbl_urun_adi.Name = "lbl_urun_adi";
-            this.lbl_urun_adi.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_urun_adi.SizeF = new System.Drawing.SizeF(290.0604F, 63.5F);
-            this.lbl_urun_adi.StylePriority.UseBorders = false;
-            this.lbl_urun_adi.StylePriority.UseFont = false;
-            this.lbl_urun_adi.StylePriority.UsePadding = false;
-            this.lbl_urun_adi.StylePriority.UseTextAlignment = false;
-            this.lbl_urun_adi.Text = "Double Cheese Burger";
-            this.lbl_urun_adi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel5.Dpi = 254F;
-            this.xrLabel5.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(290.0607F, 0F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(68.05362F, 63.5F);
-            this.xrLabel5.StylePriority.UseBorders = false;
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.StylePriority.UsePadding = false;
-            this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "x3";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // lbl_birim_fiyat
-            // 
-            this.lbl_birim_fiyat.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lbl_birim_fiyat.Dpi = 254F;
-            this.lbl_birim_fiyat.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_birim_fiyat.LocationFloat = new DevExpress.Utils.PointFloat(358.1143F, 0F);
-            this.lbl_birim_fiyat.Name = "lbl_birim_fiyat";
-            this.lbl_birim_fiyat.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_birim_fiyat.SizeF = new System.Drawing.SizeF(112.5831F, 63.5F);
-            this.lbl_birim_fiyat.StylePriority.UseBorders = false;
-            this.lbl_birim_fiyat.StylePriority.UseFont = false;
-            this.lbl_birim_fiyat.StylePriority.UsePadding = false;
-            this.lbl_birim_fiyat.StylePriority.UseTextAlignment = false;
-            this.lbl_birim_fiyat.Text = "2,50₺";
-            this.lbl_birim_fiyat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // lbl_tutar
-            // 
-            this.lbl_tutar.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lbl_tutar.Dpi = 254F;
-            this.lbl_tutar.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_tutar.LocationFloat = new DevExpress.Utils.PointFloat(470.6974F, 0F);
-            this.lbl_tutar.Name = "lbl_tutar";
-            this.lbl_tutar.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_tutar.SizeF = new System.Drawing.SizeF(129.3026F, 63.5F);
-            this.lbl_tutar.StylePriority.UseBorders = false;
-            this.lbl_tutar.StylePriority.UseFont = false;
-            this.lbl_tutar.StylePriority.UsePadding = false;
-            this.lbl_tutar.StylePriority.UseTextAlignment = false;
-            this.lbl_tutar.Text = "5,25₺";
-            this.lbl_tutar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // lbl_menu
-            // 
-            this.lbl_menu.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.lbl_menu.Dpi = 254F;
-            this.lbl_menu.Font = new System.Drawing.Font("Bahnschrift", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_menu.LocationFloat = new DevExpress.Utils.PointFloat(0F, 63.50002F);
-            this.lbl_menu.Name = "lbl_menu";
-            this.lbl_menu.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_menu.SizeF = new System.Drawing.SizeF(599.9996F, 24.66951F);
-            this.lbl_menu.StylePriority.UseBorders = false;
-            this.lbl_menu.StylePriority.UseFont = false;
-            this.lbl_menu.StylePriority.UsePadding = false;
-            this.lbl_menu.StylePriority.UseTextAlignment = false;
-            this.lbl_menu.Text = "xrTableCell1";
-            this.lbl_menu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
             // rp_adisyon
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -456,10 +460,10 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
-        private DevExpress.XtraReports.UI.XRTableCell lbl_miktar;
+        private DevExpress.XtraReports.UI.XRTableCell xr;
         private DevExpress.XtraReports.UI.XRLabel lbl_adres_bilgileri;
         private DevExpress.XtraReports.UI.XRLabel lbl_urun_adi;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel lbl_miktar;
         private DevExpress.XtraReports.UI.XRLabel lbl_birim_fiyat;
         private DevExpress.XtraReports.UI.XRLabel lbl_tutar;
         private DevExpress.XtraReports.UI.XRLabel lbl_menu;
