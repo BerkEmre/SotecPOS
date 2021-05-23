@@ -68,10 +68,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>ED4020308C90E4D02167802CA3837FD1E0898E78</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>414E517A51EA51415801073F1B08793F2743D8E8</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>sotec_pos_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>sotec_pos_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -860,6 +860,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sotec_pos_2_TemporaryKey.pfx" />
     <None Include="sotec_pos_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
